@@ -4,7 +4,7 @@ import { Box } from "@mui/material";
 import "./page.css";
 import { useState, useRef, useCallback } from "react";
 import { AboutMe, Overview, Projects } from "@/sections";
-import { colors } from "@/consts";
+
 export default function Home() {
   const [activeId, setActiveId] = useState<string>("0");
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);

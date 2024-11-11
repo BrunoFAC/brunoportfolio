@@ -1,0 +1,33 @@
+body {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  background: -webkit-linear-gradient(90deg, #1a3343 10%, #312235);
+  /* Chrome 10+, Saf5.1+ */
+  background: -moz-linear-gradient(90deg, #1a3343 10%, #312235); /* FF3.6+ */
+  background: -ms-linear-gradient(90deg, #1a3343 10%, #312235); /* IE10 */
+  background: -o-linear-gradient(
+    90deg,
+    #1a3343 10%,
+    #312235
+  ); /* Opera 11.10+ */
+  background: linear-gradient(90deg, #1a3343 10%, #312235); /* W3C */
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  scroll-behavior: smooth;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

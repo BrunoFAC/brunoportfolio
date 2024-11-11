@@ -1,0 +1,98 @@
+.title-timeline {
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.subtitle-timeline {
+  font-size: 14px;
+  color: white;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+}
+.under-subtitle-timeline {
+  font-size: 12px;
+  color: white;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 300;
+  max-width: 300px;
+}
+.projects {
+  font-size: 12px;
+  color: white;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 300;
+}
+
+.title {
+  color: white;
+  font-size: 56px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: bold;
+}
+
+.now {
+  font-size: 24px;
+  color: white;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.pulse {
+  width: 10px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #1976d2;
+  margin: 8px 0px;
+  box-shadow: 0 0 0 0 #1976d2;
+  animation: pulsing 1s infinite;
+}
+@keyframes pulsing {
+  100% {
+    box-shadow: 0 0 0 5px #0000;
+  }
+}
+@media only screen and (min-width: 900px) {
+  .overview {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    flex-direction: column;
+    width: calc(100% - 205px);
+    justify-content: center;
+  }
+}
+@media only screen and (max-width: 1199px) {
+  .title-timeline {
+    font-size: 24px;
+  }
+}
+@media only screen and (max-width: 999px) {
+  .title-timeline {
+    font-size: 22px;
+  }
+}
+@media only screen and (max-width: 899px) {
+  .overview {
+    display: flex;
+    min-height: 100vh;
+    margin-top: 60px;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    justify-content: center;
+    z-index: 0;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .title-timeline {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .subtitle-timeline {
+    font-size: 10px;
+  }
+  .under-subtitle-timeline .projects {
+    font-size: 8px;
+  }
+}

@@ -1,0 +1,25 @@
+.typewritter {
+  min-height: 45px;
+  font-size: 28px;
+  color: white;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+@media only screen and (max-width: 1399px) {
+  .typewritter {
+    font-size: 28px;
+    min-height: 41px;
+  }
+}
+@media only screen and (max-width: 1199px) {
+  .typewritter {
+    font-size: 20px;
+    min-height: 24px;
+  }
+}
+@media only screen and (max-width: 899px) {
+  .typewritter {
+    font-size: 34px;
+    min-height: 41px;
+  }
+}

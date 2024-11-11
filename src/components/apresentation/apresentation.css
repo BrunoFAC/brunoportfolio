@@ -1,0 +1,33 @@
+.typewritter {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+}
+
+.welcoming {
+  font-size: 56px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  color: white;
+  width: 100%;
+}
+
+@media only screen and (max-width: 1399px) {
+  .welcoming {
+    font-size: 56px;
+  }
+}
+@media only screen and (max-width: 1199px) {
+  .welcoming {
+    font-size: 47px;
+  }
+}
+@media only screen and (max-width: 999px) {
+  .welcoming {
+    font-size: 38px;
+  }
+}
+@media only screen and (max-width: 899px) {
+  .welcoming {
+    font-size: 56px;
+  }
+}

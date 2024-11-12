@@ -1,3 +1,3 @@
-export * from "./aboutMe";
-export * from "./overview";
-export * from "./projects";
+export * from "./intro";
+export * from "./overview/overview";
+export * from "./projects/projects";

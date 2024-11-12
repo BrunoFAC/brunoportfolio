@@ -1,12 +1,9 @@
-export * from "./projects";
-
 import { images } from "@/images";
 import { StaticImageData } from "next/image";
-import { Cards } from "./views/card";
 
-export const ProjectsViews = {
-  Cards,
-};
+export interface GridContainerProps {
+  $itemsCount: number;
+}
 export interface IconsProps {
   title: string;
   link: string;

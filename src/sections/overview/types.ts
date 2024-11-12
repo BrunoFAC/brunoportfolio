@@ -1,4 +1,3 @@
-export * from "./overview";
 export interface TimelineProps {
   title: string;
   subtitle?: string;
@@ -43,7 +42,7 @@ export const timeline: TimelineProps[] = [
   },
   {
     title: "SI Consultant",
-    subtitle: "Progressed at ITSector",   
+    subtitle: "Progressed at ITSector",
     projects: "MSE (Millennium BCP Enterprise)",
     underSubtitle:
       "Alongside my professional work, I have actively engaged in personal projects to enhance my expertise",

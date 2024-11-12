@@ -1,6 +1,7 @@
 "use client";
+import { colors } from "@/consts";
 import { FC, useEffect, useState } from "react";
-import "./typewriter.css";
+import styled from "styled-components";
 
 interface TypewriterProps {
   text: string[];
@@ -8,7 +9,24 @@ interface TypewriterProps {
   suffix?: string;
   pause?: number;
 }
+const Typewritter = styled.span`
+  min-height: 45px;
+  font-size: 28px;
+  color: ${colors.white};
 
+  @media only screen and (max-width: 1399px) {
+    font-size: 28px;
+    min-height: 41px;
+  }
+  @media only screen and (max-width: 1199px) {
+    font-size: 20px;
+    min-height: 24px;
+  }
+  @media only screen and (max-width: 899px) {
+    font-size: 32px;
+    min-height: 41px;
+  }
+`;
 export const Typewriter: FC<TypewriterProps> = ({
   text,
   suffix,
@@ -53,8 +71,6 @@ export const Typewriter: FC<TypewriterProps> = ({
   }, [index, isDeleting, text[0], speed, pause]);
 
   return (
-    <span className="typewritter">
-      {`${suffix ? suffix + " " : ""}${displayedText}`}
-    </span>
+    <Typewritter>{`${suffix ? suffix + " " : ""}${displayedText}`}</Typewritter>
   );
 };

@@ -1,3 +1,4 @@
+import styled, { keyframes } from "styled-components";
 import { colors } from "@/consts";
 import {
   Timeline,
@@ -8,53 +9,60 @@ import {
   TimelineOppositeContent,
 } from "@mui/lab";
 import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
-import { Box, Grow } from "@mui/material";
-import "./overview.css";
+import { Grow } from "@mui/material";
 import { FC, useRef } from "react";
-import { timeline } from ".";
 import { useVisibility } from "@/hooks";
+import { OverviewViews } from "./views";
+import { timeline } from "./types";
+
+const OverviewContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(100% - 205px);
+  @media (max-width: 899px) {
+    width: 100%;
+  }
+  justify-content: start;
+  min-height: 100vh;
+`;
+
+const TimelineWrapper = styled.div`
+  width: 100%;
+`;
+
+const pulseAnimation = keyframes`
+  100% {
+    box-shadow: 0 0 0 5px transparent;
+  }
+`;
+
+const Pulse = styled.div`
+  width: 10px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #1976d2;
+  margin: 8px 0;
+  box-shadow: 0 0 0 0 #1976d2;
+  animation: ${pulseAnimation} 1s infinite;
+`;
 
 export const Overview: FC = () => {
   const elementRef = useRef(null);
 
   const { isVisible } = useVisibility(elementRef);
-
+  const { HeaderOverview, TimelineInsideContent } = OverviewViews;
   const timelineSorted = [...timeline].sort((a, b) => b.order - a.order);
 
   const isEducation = (order: number) =>
     (timeline.find((e) => e?.type === "Education")?.order ?? 0) >= order;
 
   return (
-    <div className="overview">
+    <OverviewContainer>
       <Grow in={isVisible}>
-        <Box
-          sx={{
-            width: "100%",
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              width: "100%",
-              justifyContent: "center",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: "8px",
-            }}
-          >
-            <span className="title">OVERVIEW</span>
-            <span className="subtitle-timeline">
-              Key Career Highlights and Educational Path
-            </span>
-          </Box>
-          <Box
-            sx={{
-              width: "100%",
-            }}
-            ref={elementRef}
-          >
+        <OverviewContainer>
+          <HeaderOverview />
+          <TimelineWrapper ref={elementRef}>
             <Timeline position="alternate">
               {timelineSorted.map((item, index) => (
                 <TimelineItem key={`${item.order}-${index}`}>
@@ -81,7 +89,7 @@ export const Overview: FC = () => {
                         sx={{ color: "primary.main" }}
                       />
                     ) : (
-                      <div className="pulse"></div>
+                      <Pulse />
                     )}
                     <TimelineConnector
                       sx={{
@@ -101,29 +109,14 @@ export const Overview: FC = () => {
                       gap: "8px",
                     }}
                   >
-                    <span className="title-timeline">{item.title}</span>
-                    {item?.subtitle && (
-                      <span className="subtitle-timeline">
-                        {item?.subtitle}
-                      </span>
-                    )}
-                    {item?.underSubtitle && (
-                      <span className="under-subtitle-timeline">
-                        {item?.underSubtitle}
-                      </span>
-                    )}
-                    {item?.projects && (
-                      <span className="projects">
-                        Projects: <b>{item?.projects}</b>
-                      </span>
-                    )}
+                    <TimelineInsideContent item={item} />
                   </TimelineContent>
                 </TimelineItem>
               ))}
             </Timeline>
-          </Box>
-        </Box>
+          </TimelineWrapper>
+        </OverviewContainer>
       </Grow>
-    </div>
+    </OverviewContainer>
   );
 };

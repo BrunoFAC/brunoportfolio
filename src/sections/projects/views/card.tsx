@@ -1,10 +1,13 @@
 import React, { FC, useState } from "react";
 import styled from "styled-components";
 import { Tooltip, Zoom } from "@mui/material";
-import { ProjectsProps } from "@/sections";
+import { GridContainerProps, projects, ProjectsProps } from "../types";
+import { colors } from "@/consts";
 
-const ContainerImage = styled.div`
-  height: 300px;
+const ContainerImage = styled.div<GridContainerProps>`
+  height: ${({ $itemsCount }) => {
+    return $itemsCount < 2 ? "350px" : "300px";
+  }};
   width: 100%;
   background: #333;
   display: flex;
@@ -13,8 +16,25 @@ const ContainerImage = styled.div`
   position: relative;
   border-radius: 8px;
   z-index: 1;
-  transform: translateY(50px);
+  transform: ${({ $itemsCount }) => {
+    return $itemsCount > 2 ? "translateY(0px)" : "translateY(50px)";
+  }};
+  @media (max-width: 1399px) {
+    transform: translateY(0px);
+  }
   transition: transform 0.5s, background 0.5s;
+  @media (max-width: 540px) {
+    max-height: 200px;
+  }
+`;
+
+const CardImage = styled.img<GridContainerProps>`
+  position: absolute;
+  height: ${({ $itemsCount }) => {
+    return $itemsCount < 2 ? "350px" : "300px";
+  }};
+  border-radius: 8px;
+  width: -webkit-fill-available;
   @media (max-width: 540px) {
     max-height: 200px;
   }
@@ -33,7 +53,7 @@ const ContainerOverlayCardImage = styled.div`
   position: absolute;
 `;
 
-const TitleOverlay = styled.h3`
+const TitleOverlayCardImage = styled.h3`
   padding: 20px;
   text-align: center;
   font-size: 1.5em;
@@ -51,16 +71,6 @@ const TitleDescription = styled.h3`
   }
 `;
 
-const ImageCard = styled.img`
-  position: absolute;
-  height: 300px;
-  border-radius: 8px;
-  width: -webkit-fill-available;
-  @media (max-width: 540px) {
-    max-height: 200px;
-  }
-`;
-
 const ContainerDescription = styled.div`
   display: flex;
   flex-direction: column;
@@ -74,7 +84,7 @@ const ContainerDescription = styled.div`
   }
 `;
 
-const DescriptionContainerIcons = styled.div`
+const ContainerDescriptionIcons = styled.div`
   display: flex;
   flex-direction: row;
   gap: 4px;
@@ -94,9 +104,10 @@ const Icons = styled.div`
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   border-radius: 100%;
   &:hover {
-    background-color: #ffffff3b;
+    background-color: ${colors.hoverIcons};
   }
 `;
+
 const ImageIcons = styled.img`
   width: 32px;
   height: 32px;
@@ -117,13 +128,24 @@ const Card = styled.div`
   position: relative;
   cursor: pointer;
   margin: 0px 16px;
-  transition: 0.5s ease-in;
+  transition: height 0.5s ease-in;
 
+  height: 300px;
+  &:hover {
+    height: 500px;
+  }
+
+  @media (max-width: 540px) {
+    height: 200px;
+    &:hover {
+      height: 360px;
+    }
+  }
   &:hover ${ContainerImage} {
     transform: translateY(0);
     border-radius: 8px 8px 0px 0px;
   }
-  &:hover ${TitleOverlay} {
+  &:hover ${TitleOverlayCardImage} {
     transform: translateY(60px);
     opacity: 0;
   }
@@ -133,16 +155,18 @@ const Card = styled.div`
   }
   &:hover ${ContainerDescription} {
     transform: translateY(0);
+
     border-radius: 0px 0px 8px 8px;
   }
-  &:hover ${ImageCard} {
+  &:hover ${CardImage} {
     border-radius: 8px 8px 0px 0px;
   }
 `;
 
-interface CardsProps {
+export interface CardsProps {
   card: ProjectsProps;
 }
+
 export const Cards: FC<CardsProps> = ({ card }) => {
   const openLinks = (link: string) => {
     window.open(link, "_blank");
@@ -155,15 +179,19 @@ export const Cards: FC<CardsProps> = ({ card }) => {
       onMouseEnter={() => setIsHoveredCard(true)}
       onMouseLeave={() => setIsHoveredCard(false)}
     >
-      <ContainerImage>
-        <ImageCard src={isHoveredCard ? imageHovered : image} alt={"store"} />
+      <ContainerImage $itemsCount={projects.length}>
+        <CardImage
+          $itemsCount={projects.length}
+          src={isHoveredCard ? imageHovered : image}
+          alt={"store"}
+        />
         <ContainerOverlayCardImage>
-          <TitleOverlay>{title}</TitleOverlay>
+          <TitleOverlayCardImage>{title}</TitleOverlayCardImage>
         </ContainerOverlayCardImage>
       </ContainerImage>
       <ContainerDescription>
         <TitleDescription>{title}</TitleDescription>
-        <DescriptionContainerIcons>
+        <ContainerDescriptionIcons>
           {icons.map((e, index) => (
             <Tooltip
               key={`${e.title}-${index}`}
@@ -175,7 +203,7 @@ export const Cards: FC<CardsProps> = ({ card }) => {
               </Icons>
             </Tooltip>
           ))}
-        </DescriptionContainerIcons>
+        </ContainerDescriptionIcons>
         <Description>{description}</Description>
       </ContainerDescription>
     </Card>

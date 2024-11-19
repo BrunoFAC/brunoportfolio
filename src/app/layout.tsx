@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
-import theme from "./theme";
-import { ThemeProvider } from "@mui/material";
+import StyledComponentsRegistry from "../lib/registry";
 export const metadata: Metadata = {
   title: "Bruno Portfolio",
   description:
@@ -15,10 +13,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt">
-      <body style={{ margin: 0 }}>
-        <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>{children}</ThemeProvider>
-        </AppRouterCacheProvider>
+      <body>
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>
     </html>
   );

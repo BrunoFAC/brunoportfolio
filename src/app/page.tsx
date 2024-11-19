@@ -1,69 +1,92 @@
 "use client";
-import { Loading, Stepper, TriggerOnScroll } from "@/components";
+import { ProfileInfo, TechStacks, Overview, Projects } from "@/sections";
 import "./page.css";
-import { useState, useRef, useCallback } from "react";
-import { Intro, Overview, Projects } from "@/sections";
+import { FC } from "react";
 import styled from "styled-components";
+import { Background } from "@/components";
+
+const Page = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
+  @media (max-width: 1023px) {
+    gap: 16px;
+    margin: 60px 16px 16px;
+  }
+
+  @media (min-width: 1024px) {
+    width: 1024px;
+    margin: 40px 16px 16px;
+    height: 100%;
+    justify-content: start;
+    display: flex;
+    gap: 12px;
+    flex-direction: row;
+  }
+
+  @media (min-width: 1280px) {
+    width: 1280px;
+    height: 100%;
+    gap: 16px;
+  }
 `;
-const Section = styled.section``;
 
-export default function Home() {
-  const [activeId, setActiveId] = useState<string>("0");
-  const sectionsRef = useRef<(HTMLElement | null)[]>([]);
+const ContainerProfile = styled.div`
+  height: 100%;
+  @media (max-width: 1023px) {
+    display: flex;
+    justify-content: center;
+  }
 
-  const scrollToSection = useCallback((id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  }, []);
+  @media (min-width: 1024px) {
+    width: 40%;
+    display: flex;
+    top: 40px;
+    flex-direction: column;
+    gap: 16px;
+    position: sticky;
+  }
+`;
 
+const ContainerInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  @media (max-width: 1023px) {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+  @media (min-width: 1024px) {
+    width: 60%;
+    gap: 12px;
+  }
+  @media (min-width: 1280px) {
+    gap: 16px;
+  }
+`;
+
+const Home: FC = () => {
   return (
-    <TriggerOnScroll sectionsRef={sectionsRef} setActiveId={setActiveId}>
-      <Loading />
+    <Page>
+      <Background />
       <Container>
-        <Stepper goTo={scrollToSection} activeStep={activeId} />
-        <Section
-          ref={(element) => {
-            sectionsRef.current[0] = element;
-          }}
-          id="0"
-        >
-          <Intro />
-        </Section>
-
-        <Section
-          ref={(element) => {
-            sectionsRef.current[1] = element;
-          }}
-          id="1"
-        >
-          <Overview />
-        </Section>
-        <Section
-          ref={(element) => {
-            sectionsRef.current[2] = element;
-          }}
-          id="2"
-        >
-          <Projects />
-        </Section>
-        <Section
-          ref={(element) => {
-            sectionsRef.current[3] = element;
-          }}
-          id="3"
-        >
-          <Intro />
-        </Section>
+        <ContainerProfile>
+          <ProfileInfo timer={0} />
+          <TechStacks timer={500} />
+        </ContainerProfile>
+        <ContainerInfo>
+          <Overview timer={750} />
+          <Projects timer={1000} />
+        </ContainerInfo>
       </Container>
-    </TriggerOnScroll>
+    </Page>
   );
-}
+};
+
+export default Home;

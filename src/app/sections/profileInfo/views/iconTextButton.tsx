@@ -1,119 +1,52 @@
-import { colors, device } from "@/utils";
-import { FC } from "react";
-import styled, { keyframes } from "styled-components";
-import { IconType } from "./contacts";
-import { TextButton } from "@/styles";
-
-const slide = keyframes`
-     0% {
-      left: -200%;
-    }
-    100% {
-      left: 100%;
-    }
-`;
-const Button = styled.button<{ $type: IconType }>`
-  display: flex;
-  ${({ $type }) => {
-    if ($type === "email") {
-      return { width: "100%" };
-    }
-    return { flex: 1, flexBasis: "50px" };
-  }};
-
-  padding: 10px;
-  height: min-content;
-  align-items: center;
-  border: 1px solid ${colors.card.border};
-  border-radius: 8px;
-  gap: 8px;
-  @media ${device.mobileM} {
-    gap: 4px;
-  }
-  justify-content: center;
-  flex-direction: row;
-  background: ${colors.gray.dark};
-  backdrop-filter: blur(7px);
-  -webkit-backdrop-filter: blur(7px);
-  overflow: hidden;
-  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  cursor: pointer;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -200%;
-    width: 200%;
-    height: 400%;
-    background: ${colors.button.bgAnimation};
-    transform: rotate(-45deg);
-    pointer-events: none;
-    animation: ${slide} 4s ease-in-out infinite;
-  }
-
-  &:hover {
-    border: 1px solid ${colors.button.hovered};
-    filter: brightness(1.15);
-  }
-`;
-
-const InfoIcon = styled.img`
-  width: 18px;
-  height: 18px;
-  @media ${device.mobileM} {
-    width: 13px;
-    height: 13px;
-  }
-`;
+import { FC, useMemo } from 'react';
+import { StyledButton } from '@/components';
+import { IconType } from '@/utils';
+import { useCommonStore } from '@/store';
 
 export interface IconTextButtonProps {
-  icon: string;
-  text: string;
-  url: string;
-  type: IconType;
+	icon: string;
+	text: string;
+	url: string;
+	type: IconType;
 }
 
-export const IconTextButton: FC<IconTextButtonProps> = ({
-  icon,
-  text,
-  type,
-  url,
-}) => {
-  const openLinks = () => {
-    switch (type) {
-      case "cv":
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "cv-bruno.pdf";
-        a.click();
-        break;
+export const IconTextButton: FC<IconTextButtonProps> = ({ icon, text, type, url }) => {
+	const setToast = useCommonStore((store) => store.setToast);
 
-      case "email":
-        const subject = encodeURIComponent(
-          "Proposal for Collaboration on Website/App Development"
-        );
+	const openLinks = () => {
+		switch (type) {
+			case 'cv':
+				const a = document.createElement('a');
+				a.href = url;
+				a.download = 'cv-bruno.pdf';
+				a.click();
+				break;
 
-        const body = encodeURIComponent(bodyText);
+			case 'email':
+				const subject = encodeURIComponent('Proposal for Collaboration on Website/App Development');
 
-        const mailtoLink = `mailto:${url}?subject=${subject}&body=${body}`;
-        window.location.href = mailtoLink;
-        break;
+				const body = encodeURIComponent(bodyText);
 
-      case "link":
-        window.open(url, "_blank");
-        break;
-    }
-  };
-  return (
-    <Button onClick={() => openLinks()} $type={type}>
-      <InfoIcon src={icon} alt={text} />
-      <TextButton isButton isSelected>
-        {text}
-      </TextButton>
-    </Button>
-  );
+				const mailtoLink = `mailto:${url}?subject=${subject}&body=${body}`;
+				window.location.href = mailtoLink;
+				break;
+
+			case 'link':
+				window.open(url, '_blank');
+				break;
+			case 'copy-email':
+				navigator.clipboard.writeText(url);
+				setToast('visible');
+				break;
+		}
+	};
+
+	const width = useMemo(() => {
+		if (type === 'email') return '80%';
+		return type === 'copy-email' ? '15%' : '50px';
+	}, [type]);
+
+	return <StyledButton icon={icon} text={text} width={width} onClick={openLinks} />;
 };
 
 const bodyText = `Hello Bruno,

@@ -1,4 +1,4 @@
-import { colors } from "@/global";
+import { colors, device } from "@/utils";
 import { images } from "@/images";
 import { Title } from "@/styles";
 import { FC } from "react";
@@ -15,7 +15,7 @@ const reveal = keyframes`
 
 const Container = styled.div`
   display: none;
-  @media (max-width: 1023px) {
+  @media ${device.tabletM} {
     display: flex;
     backdrop-filter: blur(10px);
     top: 0;
@@ -40,7 +40,7 @@ const InsideContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  @media (max-width: 1023px) {
+  @media ${device.tabletM} {
     gap: 16px;
     margin: 0px 16px;
   }

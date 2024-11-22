@@ -113,9 +113,11 @@ export const techs: TechsProps[] = [
 // #region OVERVIEW Roles
 export interface Timeline {
   title: string;
+  type: "company" | "academic";
   company: string;
+  iconCompany?: string;
   projects?: string;
-  subtitle?: string;
+  subtitle: string[];
   time: string;
   techs?: {
     title: string;
@@ -127,8 +129,16 @@ export const professional: Timeline[] = [
   {
     title: "SI Consultant",
     company: "ITSector",
+    type: "company",
+    iconCompany: images.Work.src,
     projects: "MSE (Millennium BCP Corp)",
     time: "Apr 2024 - Current ",
+    subtitle: [
+      "Developed and maintained React and TypeScript code within a micro frontends architecture.",
+      "Collaborated with back-end teams and designers to enhance usability and user experience.",
+      "Participated in Scrum ceremonies, supporting planning, decision-making, and troubleshooting to drive project progress.",
+      "Utilized Azure DevOps for continuous integration.",
+    ],
     techs: [
       {
         title: "React",
@@ -151,8 +161,16 @@ export const professional: Timeline[] = [
   {
     title: "SI Programmer",
     company: "ITSector",
+    type: "company",
+    iconCompany: images.Work.src,
     projects: "MSE (Millennium BCP Corp)",
     time: "Aug 2022 - Apr 2024",
+    subtitle: [
+      "Developed and maintained website of Millennium BCP Corp using React and TypeScript.",
+      "Collaborated with back-end teams and designers to improve usability.",
+      "Participated in Scrum ceremonies, contributing to project planning, decision-making, and troubleshooting, while working collaboratively with the team to ensure project progress",
+    ],
+
     techs: [
       {
         title: "React",
@@ -177,13 +195,16 @@ export const professional: Timeline[] = [
 export const academic: Timeline[] = [
   {
     title: "Computer Engineering",
-    subtitle: "Completed degree",
+    type: "academic",
+    subtitle: ["Completed degree"],
     time: "Sep 2019 - Jul 2022",
     company: "ISPGaya",
   },
   {
     title: "Software Developer",
-    subtitle: "Internship",
+    type: "academic",
+    iconCompany: images.Work.src,
+    subtitle: ["Internship"],
     time: "Fev 2022 - Jun 2022",
     company: "ITSector",
   },

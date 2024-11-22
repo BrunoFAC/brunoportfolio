@@ -2,6 +2,7 @@ import { colors } from "@/global";
 import { FC } from "react";
 import styled, { keyframes } from "styled-components";
 import { IconType } from "./contacts";
+import { TextButton } from "@/styles";
 
 const slide = keyframes`
      0% {
@@ -26,6 +27,9 @@ const Button = styled.button<{ $type: IconType }>`
   border: 1px solid ${colors.card.border};
   border-radius: 8px;
   gap: 8px;
+  @media (max-width: 540px) {
+    gap: 4px;
+  }
   justify-content: center;
   flex-direction: row;
   background: ${colors.gray.dark};
@@ -55,15 +59,13 @@ const Button = styled.button<{ $type: IconType }>`
   }
 `;
 
-const InfoText = styled.p`
-  font-size: 16px;
-  letter-spacing: 0.5px;
-  color: ${colors.white};
-`;
-
 const InfoIcon = styled.img`
   width: 18px;
   height: 18px;
+  @media (max-width: 540px) {
+    width: 13px;
+    height: 13px;
+  }
 `;
 
 export interface IconTextButtonProps {
@@ -107,7 +109,9 @@ export const IconTextButton: FC<IconTextButtonProps> = ({
   return (
     <Button onClick={() => openLinks()} $type={type}>
       <InfoIcon src={icon} alt={text} />
-      <InfoText>{text}</InfoText>
+      <TextButton isButton isSelected>
+        {text}
+      </TextButton>
     </Button>
   );
 };

@@ -1,8 +1,9 @@
-import { Subtitle, Title, Highlight, Pulse } from "@/components";
+import { Pulse } from "@/components";
 import { colors } from "@/global";
 import { images } from "@/images";
 import { FC } from "react";
 import styled from "styled-components";
+import { Title, Highlight, Subtitle } from "@/styles";
 
 const ContainerAvatar = styled.div`
   display: flex;
@@ -19,7 +20,7 @@ const Avatar = styled.div<{ $image: string; $hoveredImage: string }>`
   background-image: url(${({ $image }) => $image});
   background-size: cover;
   background-position: center;
-  transition: transform 0.3s ease-in-out, background-image 0.5s ease-in-out;
+  transition: transform 0.3s ease, background-image 0.5s ease;
   cursor: pointer;
 
   &:hover {
@@ -45,7 +46,7 @@ const ContainerWork = styled.div`
   align-items: center;
   flex-direction: row;
   gap: 8px;
-  transition: 0.3s ease-in-out;
+  transition: 0.3s ease;
 
   &:hover {
     background: ${colors.gray.dark};
@@ -56,6 +57,9 @@ const WorkSpan = styled.p`
   color: ${colors.primary};
   font-weight: 600;
   font-size: 10px;
+  @media (max-width: 540px) {
+    font-weight: 500;
+  }
 `;
 
 export const Header: FC = () => {
@@ -73,7 +77,7 @@ export const Header: FC = () => {
         <Title color={colors.primary}>Bruno Carvalho</Title>
         <Subtitle>
           {`I'm a `}
-          <Highlight>Web Developer</Highlight>
+          <Highlight>Front-end Developer</Highlight>
         </Subtitle>
       </ContainerText>
     </ContainerAvatar>

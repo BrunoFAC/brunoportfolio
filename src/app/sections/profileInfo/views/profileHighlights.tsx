@@ -6,12 +6,11 @@ import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: wrap;
   flex: 1;
   gap: 8px;
   background: ${colors.card.background};
-  padding: 8px;
+  padding: 16px;
   height: min-content;
   border-radius: 8px;
 `;
@@ -43,36 +42,39 @@ export const ProfileHighlights: FC = () => {
       text: "Freelancer",
     },
     {
-      icon: images.Clock.src,
-      text: calculateTimezone,
-    },
-    {
-      icon: images.ID.src,
-      text: `${age} y/o`,
+      icon: images.Pin.src,
+      text: "Portugal",
     },
     {
       icon: images.Experience.src,
       text: `+ ${yearsOfExperience} Years`,
     },
     {
-      icon: images.Pin.src,
-      text: "Portugal",
+      icon: images.Language.src,
+      text: "Portuguese & English",
     },
     {
       icon: images.Coffee.src,
       text: "Coffee Addict",
     },
     {
-      icon: images.Language.src,
-      text: "Portuguese & English",
+      icon: images.ID.src,
+      text: `${age} y/o`,
+    },
+    {
+      icon: images.Clock.src,
+      text: calculateTimezone,
     },
   ];
 
   return (
     <Container>
-      {infoArray.map((e, key) => (
-        <HighlightBox key={`${e.text}-${key}`} icon={e.icon} text={e.text} />
-      ))}
+      {[...infoArray]
+        //reorder for text length
+        .sort((a, b) => a.text.length - b.text.length)
+        .map((e, key) => (
+          <HighlightBox key={`${e.text}-${key}`} icon={e.icon} text={e.text} />
+        ))}
     </Container>
   );
 };

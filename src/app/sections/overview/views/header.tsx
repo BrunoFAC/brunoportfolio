@@ -1,5 +1,6 @@
 import { FC } from "react";
-import { HeaderWrapper, Highlight, Subtitle, Title } from "@/components";
+import { HeaderWrapper } from "@/components";
+import { Title, Subtitle, Highlight } from "@/styles";
 
 export const Header: FC = () => {
   return (

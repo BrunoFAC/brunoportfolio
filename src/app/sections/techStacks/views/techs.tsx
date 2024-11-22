@@ -1,17 +1,14 @@
 import { FC } from "react";
 import styled from "styled-components";
-import { colors } from "@/global";
-import { images } from "@/images";
+import { colors, techs } from "@/global";
+import { ItemDescription } from "@/styles";
 
 const ContainerTechs = styled.div`
   padding: 0px 24px 24px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @media (max-width: 450px) {
+  @media (max-width: 540px) {
     grid-template-columns: repeat(1, 1fr);
   }
 `;
@@ -48,11 +45,6 @@ const TechImage = styled.img<{ $backgroundColor: string }>`
   cursor: pointer;
   background: ${({ $backgroundColor }) => $backgroundColor};
 `;
-const TechTile = styled.p`
-  color: ${colors.white};
-  font-weight: 600;
-  font-size: 14px;
-`;
 
 const TechSubtile = styled.p`
   color: ${colors.gray.light};
@@ -60,67 +52,7 @@ const TechSubtile = styled.p`
   font-size: 10px;
 `;
 
-interface TechsProps {
-  title: string;
-  subtitle: string;
-  image: string;
-  backgroundColor: string;
-  url: string;
-}
-
 export const Techs: FC = () => {
-  const techs: TechsProps[] = [
-    {
-      title: "React",
-      subtitle: "Javascript Library",
-      image: images.React.src,
-      backgroundColor: colors.techs.react,
-      url: "https://react.dev/",
-    },
-    {
-      title: "Typescript",
-      subtitle: "Javascript but better",
-      image: images.Typescript.src,
-      backgroundColor: colors.techs.typescript,
-      url: "https://www.typescriptlang.org/",
-    },
-    {
-      title: "Next",
-      subtitle: "React Framework",
-      image: images.Next.src,
-      backgroundColor: colors.techs.next,
-      url: "https://nextjs.org/",
-    },
-    {
-      title: "Azure DevOps",
-      subtitle: "Code Management",
-      image: images.DevOps.src,
-      backgroundColor: colors.techs.devops,
-      url: "https://azure.microsoft.com/pt-pt/pricing/purchase-options/azure-account?icid=azure-devops",
-    },
-    {
-      title: "Git",
-      subtitle: "Version Control",
-      image: images.Git.src,
-      backgroundColor: colors.techs.git,
-      url: "https://git-scm.com/",
-    },
-    {
-      title: "GitHub",
-      subtitle: "Code Management",
-      image: images.Github.src,
-      backgroundColor: colors.techs.github,
-      url: "https://github.com/",
-    },
-    {
-      title: "Zustand",
-      subtitle: "Store Management",
-      image: images.Zustand.src,
-      backgroundColor: colors.techs.zustand,
-      url: "https://zustand-demo.pmnd.rs/",
-    },
-  ];
-
   const openLinks = (url: string) => {
     window.open(url, "_blank");
   };
@@ -134,7 +66,9 @@ export const Techs: FC = () => {
             alt={e.title}
           />
           <ContainerText>
-            <TechTile>{e.title}</TechTile>
+            <ItemDescription color={colors.white} fontWeight={600}>
+              {e.title}
+            </ItemDescription>
             <TechSubtile>{e.subtitle}</TechSubtile>
           </ContainerText>
         </TechStack>

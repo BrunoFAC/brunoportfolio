@@ -1,7 +1,6 @@
 import { FC } from "react";
 import styled from "styled-components";
 import { InfoViews } from "../views";
-import { contactsData } from "@/global";
 
 const Container = styled.div`
   display: flex;
@@ -19,20 +18,24 @@ export interface IconsWithTooltipProps {
   text: string;
 }
 export type IconType = "email" | "link" | "cv";
+export interface InfoArray {
+  icon: string;
+  text: string;
+  url: string;
+  type: IconType;
+}
 
-export const Contacts: FC = () => {
+export const IdiomAndTheme: FC = () => {
   const { IconTextButton } = InfoViews;
   return (
     <Container>
-      {contactsData.map((e, key) => (
-        <IconTextButton
-          icon={e.icon}
-          text={e.text}
-          type={e.type}
-          url={e.url}
-          key={`${e.text}-${key}`}
-        />
-      ))}
+      <IconTextButton
+        icon={"e.icon"}
+        text={"e.text"}
+        type={"cv"}
+        url={"e.url"}
+        key={"`${e.text}-${key}`"}
+      />
     </Container>
   );
 };

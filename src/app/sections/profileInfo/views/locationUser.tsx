@@ -1,5 +1,6 @@
 import { colors } from "@/global";
 import { images } from "@/images";
+import { ItemDescription } from "@/styles";
 import { FC } from "react";
 import styled from "styled-components";
 
@@ -15,16 +16,13 @@ const LocationContainer = styled.div`
   gap: 8px;
 `;
 
-const LocationText = styled.p`
-  color: ${colors.white};
-  font-size: 14px;
-`;
-
 export const LocationUser: FC = () => {
   return (
     <LocationContainer>
       <Pin src={images.Pin.src} alt="pin-icon" />
-      <LocationText>Santa Maria da Feira, Aveiro </LocationText>
+      <ItemDescription fontWeight={400} color={colors.white}>
+        Santa Maria da Feira, Aveiro
+      </ItemDescription>
     </LocationContainer>
   );
 };

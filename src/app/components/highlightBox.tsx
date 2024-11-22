@@ -1,4 +1,5 @@
 import { colors } from "@/global";
+import { TextButton } from "@/styles";
 import { FC } from "react";
 import styled from "styled-components";
 
@@ -8,6 +9,7 @@ const Container = styled.div<{ $padding?: number; $bgColor?: string }>`
   flex-direction: row;
   height: min-content;
   align-items: center;
+  cursor: default;
   padding: ${({ $padding }) => `${$padding ?? 8}px`};
   border-radius: 8px;
   gap: 8px;
@@ -22,10 +24,6 @@ const Container = styled.div<{ $padding?: number; $bgColor?: string }>`
     transform: rotate(-2deg);
   }
 `;
-const Text = styled.p<{ $fontSize?: number }>`
-  font-size: ${({ $fontSize }) => `${$fontSize ?? 14}px`};
-  cursor: default;
-`;
 
 const InfoIcon = styled.img<{ $width?: number; $height?: number }>`
   width: ${({ $width }) => `${$width ?? 18}px`};
@@ -34,13 +32,11 @@ const InfoIcon = styled.img<{ $width?: number; $height?: number }>`
 export interface HighlightBoxProps {
   text: string;
   icon: string;
-  fontSize?: number;
   iconSize?: { width: number; height: number };
   padding?: number;
 }
 export const HighlightBox: FC<HighlightBoxProps> = ({
   icon,
-  fontSize,
   iconSize,
   padding,
   text,
@@ -53,7 +49,7 @@ export const HighlightBox: FC<HighlightBoxProps> = ({
         src={icon}
         alt={text}
       />
-      <Text $fontSize={fontSize}>{text}</Text>
+      <TextButton color={colors.gray.light}>{text}</TextButton>
     </Container>
   );
 };

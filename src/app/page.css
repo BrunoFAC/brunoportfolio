@@ -2,11 +2,11 @@
 
 body {
   font-family: "Open Sans", sans-serif;
-  background: black;
   margin: 0px;
   overflow-x: hidden;
 }
 p {
+  font-family: "Open Sans", sans-serif;
   margin: 0;
 }
 

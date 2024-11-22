@@ -1,9 +1,8 @@
 import { FC, useState } from "react";
 import styled, { keyframes } from "styled-components";
-import { colors } from "@/global";
-import { OverviewViews, Timeline } from "../views";
-import { GrowOut } from "@/components";
-import { images } from "@/images";
+import { academic, colors, professional } from "@/global";
+import { OverviewViews } from "../views";
+import { TextButton } from "@/styles";
 
 const Container = styled.div`
   display: flex;
@@ -80,14 +79,6 @@ const Button = styled.button<{ $isSelected: boolean }>`
     }}
 `;
 
-const Text = styled.p<{ $isSelected?: boolean }>`
-  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  font-size: 16px;
-  letter-spacing: 0.5px;
-  color: ${({ $isSelected }) =>
-    $isSelected ? colors.white : colors.button.hovered};
-`;
-
 export const Description: FC = () => {
   const [overview, setOverview] = useState<"professional" | "academic">(
     "professional"
@@ -97,63 +88,6 @@ export const Description: FC = () => {
 
   const { Roles } = OverviewViews;
 
-  const professional: Timeline[] = [
-    {
-      title: "SI Consultant",
-      company: "ITSector",
-      projects: "MSE (Millennium BCP Corp)",
-      time: "Apr 2024 - Current ",
-      techs: [
-        {
-          title: "React",
-          icon: images.React.src,
-        },
-        {
-          title: "Typescript",
-          icon: images.Typescript.src,
-        },
-        {
-          title: "Zustand",
-          icon: images.Zustand.src,
-        },
-      ],
-    },
-    {
-      title: "SI Programmer",
-      company: "ITSector",
-      projects: "MSE (Millennium BCP Corp)",
-      time: "Aug 2022 - Apr 2024",
-      techs: [
-        {
-          title: "React",
-          icon: images.React.src,
-        },
-        {
-          title: "Typescript",
-          icon: images.Typescript.src,
-        },
-        {
-          title: "Zustand",
-          icon: images.Zustand.src,
-        },
-      ],
-    },
-  ];
-
-  const academic: Timeline[] = [
-    {
-      title: "Computer Engineering",
-      subtitle: "Completed degree",
-      time: "Sep 2019 - Jul 2022",
-      company: "ISPGaya",
-    },
-    {
-      title: "Software Developer",
-      subtitle: "Internship",
-      time: "Fev 2022 - Jun 2022",
-      company: "ITSector",
-    },
-  ];
   return (
     <Container>
       <ContainerButton>
@@ -161,26 +95,28 @@ export const Description: FC = () => {
           $isSelected={isProfessional}
           onClick={() => setOverview("professional")}
         >
-          <Text $isSelected={isProfessional}>Professional</Text>
+          <TextButton isButton isSelected={isProfessional}>
+            Professional
+          </TextButton>
         </Button>
         <Button
           $isSelected={isAcademic}
           onClick={() => setOverview("academic")}
         >
-          <Text $isSelected={isAcademic}>Academic</Text>
+          <TextButton isButton isSelected={isAcademic}>
+            Academic
+          </TextButton>
         </Button>
       </ContainerButton>
       {isProfessional && (
         <ContainerDesription>
-          <GrowOut isVisible={isProfessional}>
-            {professional.map((e, key) => (
-              <Roles
-                key={`${key}-${e.title}`}
-                roles={e}
-                isLast={key === professional.length - 1}
-              />
-            ))}
-          </GrowOut>
+          {professional.map((e, key) => (
+            <Roles
+              key={`${key}-${e.title}`}
+              roles={e}
+              isLast={key === professional.length - 1}
+            />
+          ))}
         </ContainerDesription>
       )}
       {isAcademic && (

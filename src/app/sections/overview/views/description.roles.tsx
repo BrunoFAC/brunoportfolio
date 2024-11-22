@@ -1,8 +1,8 @@
 import { FC } from "react";
 import styled from "styled-components";
-import { colors } from "@/global";
+import { colors, Timeline } from "@/global";
 import { HighlightBox, Pulse } from "@/components";
-import { Timeline } from "../views";
+import { ItemDescription, ItemTitle } from "@/styles";
 
 const Container = styled.div`
   display: flex;
@@ -22,7 +22,7 @@ const ContainerPosition = styled.div<{ $isLast: boolean }>`
   flex-direction: column;
   justify-content: start;
   gap: 4px;
-  margin-bottom: ${({ $isLast }) => ($isLast ? "0px" : "25px")};
+  margin-bottom: ${({ $isLast }) => ($isLast ? "5px" : "25px")};
 `;
 
 const Connect = styled.span`
@@ -33,15 +33,11 @@ const Connect = styled.span`
   background: ${colors.card.border};
 `;
 
-const PositionTitle = styled.p`
-  color: ${colors.white};
-  font-weight: 700;
-  font-size: 18px;
-`;
 const ContainerPositionLocation = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
   color: ${colors.gray.light};
   gap: 4px;
 `;
@@ -49,40 +45,10 @@ const ContainerTechs = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
   color: ${colors.gray.light};
   margin-top: 2px;
   gap: 8px;
-`;
-
-const PositionTime = styled.p`
-  font-weight: 500;
-  font-size: 14px;
-`;
-const PositionCompany = styled.p`
-  font-weight: 600;
-  font-size: 14px;
-`;
-
-const PositionDescription = styled.p`
-  color: ${colors.gray.light};
-  word-break: break-word;
-  font-weight: 500;
-  font-size: 14px;
-`;
-
-const ProjectsTitle = styled.span`
-  font-weight: 700;
-  color: ${colors.white};
-`;
-
-const ProjectsDescription = styled.div`
-  color: ${colors.gray.light};
-  display: flex;
-  flex-direction: row;
-  word-break: break-word;
-  font-weight: 400;
-  font-size: 14px;
-  gap: 4px;
 `;
 
 export interface RolesProps {
@@ -99,26 +65,32 @@ export const Roles: FC<RolesProps> = ({ roles, isLast }) => {
         <Connect />
       </ContainerPulse>
       <ContainerPosition $isLast={isLast}>
-        <PositionTitle>{title}</PositionTitle>
+        <ItemTitle>{title}</ItemTitle>
         <ContainerPositionLocation>
-          <PositionTime>{time}</PositionTime>
-          <PositionCompany>· {company}</PositionCompany>
+          <ItemDescription>{time}</ItemDescription>
+          <ItemDescription fontWeight={600}>· {company}</ItemDescription>
         </ContainerPositionLocation>
-        {subtitle && <PositionDescription>{subtitle}</PositionDescription>}
+        {subtitle && <ItemDescription>{subtitle}</ItemDescription>}
         {projects && (
-          <ProjectsDescription>
-            <ProjectsTitle>Projects: </ProjectsTitle> {projects}
-          </ProjectsDescription>
+          <ItemDescription>
+            <ItemDescription color={colors.white} fontWeight={700}>
+              Projects:
+            </ItemDescription>
+            {` ${projects}`}
+          </ItemDescription>
         )}
         {techs && (
           <ContainerTechs>
-            {techs?.map((e, key) => (
-              <HighlightBox
-                key={`${e.title}-${key}`}
-                icon={e.icon}
-                text={e.title}
-              />
-            ))}
+            {[...techs]
+              //reorder for text length
+              .sort((a, b) => b.title.length - a.title.length)
+              ?.map((e, key) => (
+                <HighlightBox
+                  key={`${e.title}-${key}`}
+                  icon={e.icon}
+                  text={e.title}
+                />
+              ))}
           </ContainerTechs>
         )}
       </ContainerPosition>

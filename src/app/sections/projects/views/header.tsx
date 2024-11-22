@@ -1,13 +1,14 @@
-import { FC } from "react";
 import { HeaderWrapper } from "@/components";
 import { Title, Subtitle, Highlight } from "@/styles";
+import { FC } from "react";
 
 export const Header: FC = () => {
   return (
     <HeaderWrapper>
-      <Title>Tech Stacks</Title>
+      <Title>Projects</Title>
       <Subtitle>
-        The <Highlight>primary technologies</Highlight> I currently work with
+        My <Highlight>Professional</Highlight> and{" "}
+        <Highlight>Personal</Highlight> Projects
       </Subtitle>
     </HeaderWrapper>
   );

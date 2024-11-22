@@ -7,14 +7,3 @@ export const OverviewViews = {
   Description,
   Roles,
 };
-export interface Timeline {
-  title: string;
-  company: string;
-  projects?: string;
-  subtitle?: string;
-  time: string;
-  techs?: {
-    title: string;
-    icon: string;
-  }[];
-}

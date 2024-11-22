@@ -1,6 +1,6 @@
 import MarketGIF from "./market.gif";
 import Store from "./store.png";
-import StoreIcon from "./storeIcon.svg";
+import StoreIcon from "./storeIcon.png";
 import StoreIconDarkMode from "./storeIconDarkMode.png";
 import Github from "./githubIcon.png";
 import Avatar from "./bruno.png";
@@ -21,10 +21,18 @@ import Git from "./git.png";
 import Typescript from "./typescript.png";
 import Zustand from "./zustand.png";
 import SippingCoffee from "./sippingCoffee.gif";
+import ModuleFederation from "./moduleFederation.png";
+import Arrow from "./arrow.svg";
+import Link from "./link.png";
+import SiteHeader from "./siteHeader.png";
+import Millennium from "./millennium.png";
+import Work from "./work.png";
 
 export const images = {
   MarketGIF,
+  ModuleFederation,
   Store,
+  Arrow,
   StoreIcon,
   Avatar,
   StoreIconDarkMode,
@@ -46,4 +54,8 @@ export const images = {
   Git,
   Zustand,
   SippingCoffee,
+  Link,
+  SiteHeader,
+  Millennium,
+  Work,
 };

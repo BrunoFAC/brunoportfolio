@@ -1,9 +1,9 @@
-import { MutableRefObject, useEffect, useState } from "react";
+import { MutableRefObject, useLayoutEffect, useState } from "react";
 
 export const useVisibility = (ref: MutableRefObject<null>, timer?: number) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setTimeout(() => {
       if (!isVisible) {
         const observer = new IntersectionObserver(

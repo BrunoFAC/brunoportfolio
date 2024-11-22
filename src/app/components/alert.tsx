@@ -99,7 +99,7 @@ export const Alert: FC = () => {
 	useEffect(() => {
 		if (toast === 'visible') {
 			setIsOut(false);
-			setTimeout(handleClose, 250000);
+			setTimeout(handleClose, 2500);
 		}
 	}, [toast]);
 

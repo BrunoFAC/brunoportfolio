@@ -1,4 +1,4 @@
-import { colors } from "@/global";
+import { colors, device } from "@/utils";
 import { FC } from "react";
 import styled, { keyframes } from "styled-components";
 import { IconType } from "./contacts";
@@ -27,7 +27,7 @@ const Button = styled.button<{ $type: IconType }>`
   border: 1px solid ${colors.card.border};
   border-radius: 8px;
   gap: 8px;
-  @media (max-width: 540px) {
+  @media ${device.mobileM} {
     gap: 4px;
   }
   justify-content: center;
@@ -62,7 +62,7 @@ const Button = styled.button<{ $type: IconType }>`
 const InfoIcon = styled.img`
   width: 18px;
   height: 18px;
-  @media (max-width: 540px) {
+  @media ${device.mobileM} {
     width: 13px;
     height: 13px;
   }

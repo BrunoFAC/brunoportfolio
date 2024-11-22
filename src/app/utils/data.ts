@@ -111,6 +111,10 @@ export const techs: TechsProps[] = [
 // #endregion SECTION TECH STACKS Techs
 
 // #region OVERVIEW Roles
+export interface Tech {
+  title: string;
+  icon: string;
+}
 export interface Timeline {
   title: string;
   type: "company" | "academic";
@@ -119,10 +123,7 @@ export interface Timeline {
   projects?: string;
   subtitle: string[];
   time: string;
-  techs?: {
-    title: string;
-    icon: string;
-  }[];
+  techs?: Tech[];
 }
 
 export const professional: Timeline[] = [
@@ -221,10 +222,7 @@ export interface ProjectProps {
   liveDemo: string;
   leftColor: string;
   type: "personal" | "company";
-  techs?: {
-    title: string;
-    icon: string;
-  }[];
+  techs?: Tech[];
 }
 
 export const cardsData: ProjectProps[] = [

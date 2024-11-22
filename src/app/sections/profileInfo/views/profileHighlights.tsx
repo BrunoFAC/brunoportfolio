@@ -1,5 +1,5 @@
 import { HighlightBox } from "@/components";
-import { colors } from "@/global";
+import { colors, device } from "@/utils";
 import { images } from "@/images";
 import { FC } from "react";
 import styled from "styled-components";
@@ -13,6 +13,20 @@ const Container = styled.div`
   padding: 16px;
   height: min-content;
   border-radius: 8px;
+  @media ${device.tablet} {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media ${device.mobileM} {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media ${device.mobileS} {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 export const ProfileHighlights: FC = () => {
@@ -71,7 +85,7 @@ export const ProfileHighlights: FC = () => {
     <Container>
       {[...infoArray]
         //reorder for text length
-        .sort((a, b) => a.text.length - b.text.length)
+        .sort((a, b) => b.text.length - a.text.length)
         .map((e, key) => (
           <HighlightBox key={`${e.text}-${key}`} icon={e.icon} text={e.text} />
         ))}

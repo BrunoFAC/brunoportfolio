@@ -1,4 +1,4 @@
-import { colors } from "@/global";
+import { colors } from "@/utils";
 import { images } from "@/images";
 import { ItemDescription } from "@/styles";
 import { FC } from "react";

@@ -1,6 +1,6 @@
 import { FC } from "react";
 import styled from "styled-components";
-import { colors, techs } from "@/global";
+import { colors, device, techs } from "@/utils";
 import { ItemDescription } from "@/styles";
 
 const ContainerTechs = styled.div`
@@ -8,7 +8,12 @@ const ContainerTechs = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
-  @media (max-width: 540px) {
+
+  @media ${device.tablet} {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media ${device.mobileS} {
     grid-template-columns: repeat(1, 1fr);
   }
 `;

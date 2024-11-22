@@ -1,7 +1,7 @@
 import { FC } from "react";
 import styled from "styled-components";
 import { InfoViews } from "../views";
-import { contactsData } from "@/global";
+import { contactsData } from "@/utils";
 
 const Container = styled.div`
   display: flex;

@@ -3,7 +3,7 @@ import { Card, GrowOut } from "@/components";
 import styled from "styled-components";
 import { useVisibility } from "@/hooks";
 import { TechStacksViews } from "./views";
-import { VisibilityProps } from "@/global";
+import { VisibilityProps } from "@/utils";
 
 const Container = styled.div`
   display: flex;

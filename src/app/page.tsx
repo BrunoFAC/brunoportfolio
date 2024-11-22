@@ -4,7 +4,7 @@ import "./page.css";
 import { FC } from "react";
 import styled from "styled-components";
 import { Background } from "@/components";
-import { colors } from "@/global";
+import { colors, device } from "@/utils";
 
 const Page = styled.div`
   width: 100%;
@@ -20,11 +20,11 @@ const Container = styled.div`
   flex-direction: column;
   width: 100%;
   margin: 0px 16px;
-  @media (max-width: 1023px) {
+  @media ${device.tabletM} {
     gap: 16px;
   }
 
-  @media (min-width: 1024px) {
+  @media ${device.laptop} {
     max-width: 1024px;
     width: calc(100% - 32px);
     height: 100%;
@@ -34,7 +34,7 @@ const Container = styled.div`
     flex-direction: row;
   }
 
-  @media (min-width: 1280px) {
+  @media ${device.desktop} {
     max-width: 1280px;
     width: calc(100% - 32px);
     height: 100%;
@@ -45,21 +45,21 @@ const Container = styled.div`
 const ContainerProfile = styled.div`
   height: 100%;
   flex-direction: column;
-  @media (max-width: 1023px) {
+  @media ${device.tabletM} {
     gap: 16px;
     display: flex;
     justify-content: center;
     margin: 16px 16px 0px 16px;
   }
 
-  @media (min-width: 1024px) {
+  @media ${device.laptop} {
     width: 45%;
     display: flex;
     top: 40px;
     gap: 16px;
     position: sticky;
   }
-  @media (min-width: 1280px) {
+  @media ${device.desktop} {
     width: 40%;
     display: flex;
     top: 60px;
@@ -72,19 +72,19 @@ const ContainerInfo = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media (max-width: 1023px) {
+  @media ${device.tabletM} {
     display: flex;
     justify-content: center;
     gap: 16px;
     margin: 0 16px 16px;
   }
-  @media (min-width: 1024px) {
+  @media ${device.laptop} {
     width: 55%;
     display: flex;
     margin: 40px 0 16px;
     gap: 16px;
   }
-  @media (min-width: 1280px) {
+  @media ${device.desktop} {
     gap: 16px;
     margin: 60px 0 16px;
     width: 60%;

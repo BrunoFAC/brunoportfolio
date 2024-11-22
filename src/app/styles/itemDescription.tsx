@@ -1,4 +1,4 @@
-import { colors } from "@/global";
+import { colors, device } from "@/utils";
 import { FC, ReactNode } from "react";
 import styled from "styled-components";
 export type FontWeight = 400 | 500 | 600 | 700;
@@ -12,20 +12,20 @@ const ItemDescriptionP = styled.span<{
   font-weight: ${({ $fontWeight }) => $fontWeight};
   transition: transform 0.3s ease;
 
-  @media (max-width: 1023px) {
+  @media ${device.tabletM} {
     font-size: 14px;
   }
-  @media (max-width: 540px) {
+  @media ${device.mobileM} {
     font-size: 12px;
     display: flex;
     gap: 4px;
     flex-flow: wrap;
   }
-  @media (min-width: 1024px) {
+  @media ${device.laptop} {
     font-size: 12px;
   }
 
-  @media (min-width: 1280px) {
+  @media ${device.desktop} {
     font-size: 14px;
     max-width: 500px;
   }

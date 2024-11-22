@@ -1,21 +1,21 @@
-import { colors } from "@/global";
+import { colors, device } from "@/utils";
 import { FC, ReactNode } from "react";
 import styled from "styled-components";
 
 export const SubtitleP = styled.p<{ $color?: string }>`
   color: ${({ $color }) => $color ?? colors.white};
   font-weight: 600;
-  @media (max-width: 1023px) {
+  @media ${device.tabletM} {
     font-size: 13px;
   }
-  @media (max-width: 540px) {
+  @media ${device.mobileM} {
     font-size: 11px;
   }
-  @media (min-width: 1024px) {
+  @media ${device.laptop} {
     font-size: 12px;
   }
 
-  @media (min-width: 1280px) {
+  @media ${device.desktop} {
     font-size: 13px;
   }
 `;

@@ -1,4 +1,4 @@
-import { colors } from "@/global";
+import { colors } from "@/utils";
 import { FC } from "react";
 import styled, { keyframes } from "styled-components";
 

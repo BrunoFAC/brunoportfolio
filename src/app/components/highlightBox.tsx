@@ -1,11 +1,11 @@
-import { colors } from "@/global";
+import { colors } from "@/utils";
 import { TextButton } from "@/styles";
 import { FC } from "react";
 import styled from "styled-components";
 
 const Container = styled.div<{ $padding?: number; $bgColor?: string }>`
   display: flex;
-  justify-content: center;
+  justify-content: start;
   flex-direction: row;
   height: min-content;
   align-items: center;

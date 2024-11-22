@@ -1,4 +1,4 @@
-import { colors } from "@/global";
+import { colors, device } from "@/utils";
 import { FC, ReactNode } from "react";
 import styled from "styled-components";
 
@@ -13,21 +13,21 @@ const Text = styled.p<{
     return $isSelected ? colors.white : colors.button.hovered;
   }};
 
-  @media (max-width: 1023px) {
+  @media ${device.tabletM} {
     letter-spacing: 0.5px;
     font-size: ${({ $isButton }) => ($isButton ? 16 : 12)}px;
   }
 
-  @media (max-width: 540px) {
+  @media ${device.mobileM} {
     font-size: ${({ $isButton }) => ($isButton ? 12 : 11)}px;
   }
 
-  @media (min-width: 1024px) {
+  @media ${device.laptop} {
     letter-spacing: 0.5px;
     font-size: ${({ $isButton }) => ($isButton ? 14 : 12)}px;
   }
 
-  @media (min-width: 1280px) {
+  @media ${device.desktop} {
     font-size: ${({ $isButton }) => ($isButton ? 16 : 12)}px;
   }
 `;

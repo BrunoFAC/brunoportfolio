@@ -1,4 +1,4 @@
-import { cardsData, colors } from "@/global";
+import { cardsData, colors } from "@/utils";
 import styled from "styled-components";
 import { ProjectsViews } from "../views";
 import { FC } from "react";

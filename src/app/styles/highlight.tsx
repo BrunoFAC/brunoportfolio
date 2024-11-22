@@ -1,4 +1,4 @@
-import { colors } from "@/global";
+import { colors } from "@/utils";
 import { FC, ReactNode } from "react";
 import styled from "styled-components";
 const HighlightSpan = styled.span`

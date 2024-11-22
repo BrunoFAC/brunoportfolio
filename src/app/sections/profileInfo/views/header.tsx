@@ -1,5 +1,5 @@
 import { Pulse } from "@/components";
-import { colors } from "@/global";
+import { colors, device } from "@/utils";
 import { images } from "@/images";
 import { FC } from "react";
 import styled from "styled-components";
@@ -57,7 +57,7 @@ const WorkSpan = styled.p`
   color: ${colors.primary};
   font-weight: 600;
   font-size: 10px;
-  @media (max-width: 540px) {
+  @media ${device.mobileM} {
     font-weight: 500;
   }
 `;

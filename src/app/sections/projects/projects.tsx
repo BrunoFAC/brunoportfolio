@@ -1,5 +1,5 @@
 import { Card, GrowOut } from "@/components";
-import { VisibilityProps } from "@/global";
+import { VisibilityProps } from "@/utils";
 import { useVisibility } from "@/hooks";
 import { FC, useEffect, useRef, useState } from "react";
 import styled from "styled-components";

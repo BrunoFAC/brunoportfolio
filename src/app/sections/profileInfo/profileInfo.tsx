@@ -3,13 +3,15 @@ import styled from "styled-components";
 import { InfoViews } from "./views";
 import { Header } from "./views/header";
 import { useVisibility } from "@/hooks";
-import { VisibilityProps } from "@/global";
+import { VisibilityProps } from "@/utils";
 import { GrowOut, Card } from "@/components";
+
 const Container = styled.div`
   display: flex;
   width: 100%;
   height: min-content;
 `;
+
 const ContainerCard = styled.div`
   display: flex;
   height: 100%;

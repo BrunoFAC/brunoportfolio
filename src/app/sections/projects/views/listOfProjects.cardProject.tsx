@@ -1,5 +1,5 @@
 import { FadeIn, HighlightBox } from "@/components";
-import { ProjectProps } from "@/global";
+import { ProjectProps } from "@/utils";
 import { useVisibility } from "@/hooks";
 import { images } from "@/images";
 import { ItemDescription, ItemTitle } from "@/styles";
@@ -63,15 +63,17 @@ export const CardProject: FC<CardProjectProps> = (props) => {
             <ItemDescription>{label}</ItemDescription>
           </ContainerText>
           <ContainerTechs>
-            {techs?.map((e, key) => (
-              <HighlightBox
-                key={`${e.title}-${key}`}
-                icon={e.icon}
-                text={e.title}
-                padding={8}
-                iconSize={{ height: 18, width: 18 }}
-              />
-            ))}
+            {[...(techs ?? [])]
+              ?.sort((a, b) => b?.title?.length - a?.title?.length)
+              ?.map((e, key) => (
+                <HighlightBox
+                  key={`${e.title}-${key}`}
+                  icon={e.icon}
+                  text={e.title}
+                  padding={8}
+                  iconSize={{ height: 18, width: 18 }}
+                />
+              ))}
           </ContainerTechs>
           <ContainerIcons>
             {gitHub && (

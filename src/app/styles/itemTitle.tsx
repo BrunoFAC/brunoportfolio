@@ -1,4 +1,4 @@
-import { colors } from "@/global";
+import { colors, device } from "@/utils";
 import { FC, ReactNode } from "react";
 import styled from "styled-components";
 
@@ -7,19 +7,19 @@ const ItemTitleP = styled.p`
   color: ${colors.white};
   transition: transform 0.3s ease;
 
-  @media (max-width: 1023px) {
+  @media ${device.tabletM} {
     font-size: 18px;
   }
 
-  @media (max-width: 540px) {
+  @media ${device.mobileM} {
     font-size: 15px;
   }
 
-  @media (min-width: 1024px) {
+  @media ${device.laptop} {
     font-size: 16px;
   }
 
-  @media (min-width: 1280px) {
+  @media ${device.desktop} {
     font-size: 18px;
   }
 `;

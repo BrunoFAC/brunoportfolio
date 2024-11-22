@@ -1,4 +1,4 @@
-import { colors } from "@/global";
+import { colors, device } from "@/utils";
 import styled from "styled-components";
 
 export const ContainerText = styled.div`
@@ -7,7 +7,7 @@ export const ContainerText = styled.div`
   align-items: center;
   gap: 8px;
   transition: transform 0.3s ease;
-  @media (max-width: 540px) {
+  @media ${device.mobileM} {
     flex-direction: column;
     gap: 4px;
     align-items: start;
@@ -36,16 +36,10 @@ export const ContainerIcons = styled.div`
   gap: 24px;
   opacity: 0.7;
 
-  transform: translateX(40px);
+  transform: translateX(20px);
 
-  @media (max-width: 540px) {
-    transform: translateX(20px);
-  }
-  @media (min-width: 1024px) {
-    transform: translateX(30px);
-  }
-  @media (min-width: 1280px) {
-    transform: translateX(40px);
+  @media ${device.mobileM} {
+    transform: translateX(15px);
   }
   transition: transform 0.3s ease, opacity 0.3s ease;
 `;
@@ -58,7 +52,7 @@ export const Icon = styled.img`
   cursor: pointer;
   padding: 8px;
 
-  @media (max-width: 540px) {
+  @media ${device.mobileM} {
     width: 28px;
     height: 28px;
   }
@@ -80,18 +74,27 @@ export const ContainerTechs = styled.div`
   opacity: 0.7;
   flex: 1;
   gap: 8px;
-  transform: translateX(40px);
+  transform: translateX(20px);
 
-  @media (max-width: 540px) {
-    transform: translateX(20px);
-    max-width: 400px;
+  @media ${device.mobileM} {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+    max-width: 100%;
+    transform: translateX(15px);
   }
-  @media (min-width: 1024px) {
-    transform: translateX(30px);
+  @media ${device.mobileS} {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    align-items: start;
+    max-width: calc(100% - 15px);
+    transform: translateX(15px);
+  }
+  @media ${device.laptop} {
     max-width: 500px;
   }
-  @media (min-width: 1280px) {
-    transform: translateX(40px);
+  @media ${device.desktop} {
     max-width: 600px;
   }
   transition: transform 0.3s ease, opacity 0.3s ease;
@@ -120,7 +123,7 @@ export const Container = styled.div`
 
   &:hover ${ContainerText} {
     transform: translateX(10px);
-    @media (max-width: 540px) {
+    @media ${device.mobileM} {
       transform: translateX(10px);
     }
   }
@@ -131,7 +134,7 @@ export const Container = styled.div`
 
   &:hover ${ContainerIcons}, &:hover ${ContainerTechs} {
     transform: translateX(10px);
-    @media (max-width: 540px) {
+    @media ${device.mobileM} {
       transform: translateX(10px);
     }
     opacity: 1;
@@ -145,13 +148,13 @@ export const InsideContainer = styled.div`
   gap: 12px;
   padding: 16px 24px;
 
-  @media (max-width: 540px) {
+  @media ${device.mobileM} {
     padding: 12px;
   }
-  @media (min-width: 1024px) {
+  @media ${device.laptop} {
     padding: 16px;
   }
-  @media (min-width: 1280px) {
+  @media ${device.desktop} {
     padding: 16px 24px;
   }
   box-sizing: border-box;

@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import styled from "styled-components";
-import { colors, Timeline } from "@/global";
+import { colors, device, Timeline } from "@/utils";
 import { HighlightBox, Pulse } from "@/components";
 import { ItemDescription, ItemTitle } from "@/styles";
 
@@ -44,7 +44,7 @@ const ContainerTitle = styled.div`
 const IconWork = styled.img`
   width: 16px;
   height: 16px;
-  @media (max-width: 540px) {
+  @media ${device.mobileM} {
     width: 13px;
     height: 13px;
   }
@@ -67,6 +67,16 @@ const ContainerTechs = styled.div`
   color: ${colors.gray.light};
   margin-top: 2px;
   gap: 8px;
+
+  @media ${device.mobileM} {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media ${device.mobileS} {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 const ContainerDetails = styled.div`
@@ -88,16 +98,20 @@ const ContainerDetailsLink = styled.div`
 const IconSeeDetails = styled.p<{ $seeMoreDetails: boolean }>`
   color: ${colors.white};
   transition: transform 0.4s ease;
+  font-weight: 600;
+  @media ${device.mobileM} {
+    font-weight: 700;
+  }
   font-size: 15px;
   transform: ${({ $seeMoreDetails }) =>
     $seeMoreDetails
-      ? "rotate(-90deg) translateX(-2px)"
+      ? "rotate(-90deg) translateX(-1px)"
       : "rotate(90deg) translateX(1px)"};
   display: inline-block;
 `;
 
 const ContainerDescriptionDetails = styled.div`
-  color: ${colors.white};
+  width: 100%;
 `;
 
 const AccordionContent = styled.div<{ $expanded: boolean }>`
@@ -159,11 +173,13 @@ export const Roles: FC<RolesProps> = ({ roles, isLast }) => {
             ))
           ) : (
             <AccordionContent $expanded={seeMoreDetails}>
-              {subtitle.map((e, key) => (
-                <ContainerDescriptionDetails key={`${e}-${key}`}>
-                  <ItemDescription>· {e}</ItemDescription>
-                </ContainerDescriptionDetails>
-              ))}
+              {[...subtitle]
+                .sort((a, b) => b.length - a.length)
+                .map((e, key) => (
+                  <ContainerDescriptionDetails key={`${e}-${key}`}>
+                    <ItemDescription>· {e}</ItemDescription>
+                  </ContainerDescriptionDetails>
+                ))}
             </AccordionContent>
           )}
         </ContainerDetails>

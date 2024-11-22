@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import styled, { keyframes } from "styled-components";
-import { academic, colors, professional } from "@/global";
+import { academic, colors, professional } from "@/utils";
 import { OverviewViews } from "../views";
 import { TextButton } from "@/styles";
 

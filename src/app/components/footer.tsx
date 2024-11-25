@@ -6,7 +6,9 @@ import styled from 'styled-components';
 
 const Container = styled.div`
 	display: flex;
+	width: -moz-available;
 	width: -webkit-fill-available;
+	width: fill-available;
 	justify-content: center;
 	align-items: center;
 	padding: 40px;

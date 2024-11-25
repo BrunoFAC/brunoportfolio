@@ -6,7 +6,6 @@ export * from './fadeIn';
 export * from './headerNavBar';
 export * from './headerWrapper';
 export * from './highlightBox';
-export * from './loading';
 export * from './pulse';
 export * from './alert';
 export * from './styledButton';

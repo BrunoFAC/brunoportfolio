@@ -20,7 +20,9 @@ const Container = styled.div`
 		display: flex;
 		backdrop-filter: blur(10px);
 		top: 0;
+		width: -moz-available;
 		width: -webkit-fill-available;
+		width: fill-available;
 		height: 80px;
 		background: ${colors.card.background};
 		position: sticky;

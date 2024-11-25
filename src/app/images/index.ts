@@ -28,9 +28,15 @@ import SiteHeader from './siteHeader.png';
 import Millennium from './millennium.png';
 import Work from './work.png';
 import Copy from './copy.png';
+import PT from './portugal.png';
+import Menu from './list.png';
+import EN from './en.png';
 
 export const images = {
 	MarketGIF,
+	Menu,
+	PT,
+	EN,
 	ModuleFederation,
 	Store,
 	Arrow,

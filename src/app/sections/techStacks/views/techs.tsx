@@ -2,6 +2,7 @@ import { FC } from 'react';
 import styled from 'styled-components';
 import { colors, device, techs } from '@/utils';
 import { ItemDescription } from '@/styles';
+import { useCommonStore } from '@/store';
 
 const ContainerTechs = styled.div`
 	padding: 0px 24px 24px;
@@ -61,6 +62,8 @@ export const Techs: FC = () => {
 	const openLinks = (url: string) => {
 		window.open(url, '_blank');
 	};
+	const language = useCommonStore((store) => store.language);
+	const isEnglish = language === 'en';
 	return (
 		<ContainerTechs>
 			{techs.map((e, index) => (
@@ -70,7 +73,7 @@ export const Techs: FC = () => {
 						<ItemDescription color={colors.white} fontWeight={600}>
 							{e.title}
 						</ItemDescription>
-						<TechSubtile>{e.subtitle}</TechSubtile>
+						<TechSubtile>{!isEnglish && e.subtitlePT ? e.subtitlePT : e.subtitle}</TechSubtile>
 					</ContainerText>
 				</TechStack>
 			))}

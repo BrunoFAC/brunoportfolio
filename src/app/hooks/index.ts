@@ -1,1 +1,2 @@
-export * from "./useVisibility";
+export * from './useContacts';
+export * from './useVisibility';

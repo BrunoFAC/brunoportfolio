@@ -3,6 +3,7 @@ export const colors = {
 	secondary: '#0a3257',
 	black: '#000',
 	white: '#ffffff',
+	yellow: 'yellow',
 	button: {
 		hovered: '#ffffff44',
 		bgAnimation: 'radial-gradient(circle, #ffffff22, transparent 70%)',

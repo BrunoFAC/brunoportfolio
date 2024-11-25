@@ -1,7 +1,7 @@
 import { useCommonStore } from '@/store';
 import { FC, useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { colors, device } from '@/utils';
+import { colors, device, useResources } from '@/utils';
 import { TextButton } from '@/styles';
 
 const slideIn = keyframes`
@@ -29,7 +29,7 @@ const slideOut = keyframes`
 const AlertBackground = styled.div`
 	display: flex;
 	position: fixed;
-	z-index: 4;
+	z-index: 5;
 	left: 0;
 	top: 0;
 	width: 100%;
@@ -85,10 +85,10 @@ const AlertIcon = styled.span`
 `;
 
 export const Alert: FC = () => {
+	const resources = useResources();
 	const [isOut, setIsOut] = useState<boolean>(false);
 	const toast = useCommonStore((store) => store.toast);
 	const setToast = useCommonStore((store) => store.setToast);
-
 	const handleClose = () => {
 		setIsOut(true);
 		setTimeout(() => {
@@ -110,7 +110,7 @@ export const Alert: FC = () => {
 					<AlertWrapper $isOut={isOut}>
 						<AlertIcon />
 						<TextButton isButton color={colors.white}>
-							{'E-mail copied to clipboard!'}
+							{resources.alert}
 						</TextButton>
 					</AlertWrapper>
 				</AlertBackground>

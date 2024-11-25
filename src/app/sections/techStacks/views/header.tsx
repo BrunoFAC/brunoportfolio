@@ -1,14 +1,19 @@
-import { FC } from "react";
-import { HeaderWrapper } from "@/components";
-import { Title, Subtitle, Highlight } from "@/styles";
+import { FC } from 'react';
+import { HeaderWrapper } from '@/components';
+import { Title, Subtitle, Highlight } from '@/styles';
+import { useResources } from '@/utils';
 
 export const Header: FC = () => {
-  return (
-    <HeaderWrapper>
-      <Title>Tech Stacks</Title>
-      <Subtitle>
-        The <Highlight>primary technologies</Highlight> I currently work with
-      </Subtitle>
-    </HeaderWrapper>
-  );
+	const resources = useResources();
+
+	return (
+		<HeaderWrapper>
+			<Title>{resources.techStacks.title}</Title>
+			<Subtitle>
+				{resources.techStacks.subtitle.the}{' '}
+				<Highlight>{resources.techStacks.subtitle.primaryTechnologies}</Highlight>{' '}
+				{resources.techStacks.subtitle.currentlyWorkWith}
+			</Subtitle>
+		</HeaderWrapper>
+	);
 };

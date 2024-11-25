@@ -10,3 +10,7 @@ export * from './loading';
 export * from './pulse';
 export * from './alert';
 export * from './styledButton';
+export * from './simpleButton';
+export * from './footer';
+export * from './idiom';
+export * from './sidebar';

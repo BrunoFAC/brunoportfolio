@@ -7,6 +7,7 @@ export type IconType = 'email' | 'copy-email' | 'link' | 'cv';
 export interface ContactsDataProps {
 	icon: string;
 	text: string;
+	textPT?: string;
 	url: string;
 	type: IconType;
 }
@@ -15,6 +16,7 @@ export const contactsData: ContactsDataProps[] = [
 	{
 		icon: images.Email.src,
 		text: 'Contact Me',
+		textPT: 'Contacte-me',
 		type: 'email',
 		url: 'brunoalmeida15032001@gmail.com',
 	},
@@ -39,6 +41,7 @@ export const contactsData: ContactsDataProps[] = [
 	{
 		icon: images.Download.src,
 		text: 'Resume',
+		textPT: 'Currículo',
 		type: 'cv',
 		url: '/assets/cv-bruno.pdf',
 	},
@@ -50,6 +53,7 @@ export const contactsData: ContactsDataProps[] = [
 export interface TechsProps {
 	title: string;
 	subtitle: string;
+	subtitlePT?: string;
 	image: string;
 	backgroundColor: string;
 	url: string;
@@ -59,6 +63,7 @@ export const techs: TechsProps[] = [
 	{
 		title: 'React',
 		subtitle: 'Javascript Library',
+		subtitlePT: 'Biblioteca Javascript',
 		image: images.React.src,
 		backgroundColor: colors.techs.react,
 		url: 'https://react.dev/',
@@ -66,6 +71,7 @@ export const techs: TechsProps[] = [
 	{
 		title: 'Typescript',
 		subtitle: 'Javascript but better',
+		subtitlePT: 'Javascript mas melhor',
 		image: images.Typescript.src,
 		backgroundColor: colors.techs.typescript,
 		url: 'https://www.typescriptlang.org/',
@@ -80,6 +86,7 @@ export const techs: TechsProps[] = [
 	{
 		title: 'Azure DevOps',
 		subtitle: 'Code Management',
+		subtitlePT: 'Gestão de Código',
 		image: images.DevOps.src,
 		backgroundColor: colors.techs.devops,
 		url: 'https://azure.microsoft.com/pt-pt/pricing/purchase-options/azure-account?icid=azure-devops',
@@ -87,6 +94,7 @@ export const techs: TechsProps[] = [
 	{
 		title: 'Git',
 		subtitle: 'Version Control',
+		subtitlePT: 'Controlo de Versões',
 		image: images.Git.src,
 		backgroundColor: colors.techs.git,
 		url: 'https://git-scm.com/',
@@ -94,6 +102,7 @@ export const techs: TechsProps[] = [
 	{
 		title: 'GitHub',
 		subtitle: 'Code Management',
+		subtitlePT: 'Gestão de Código',
 		image: images.Github.src,
 		backgroundColor: colors.techs.github,
 		url: 'https://github.com/',
@@ -101,6 +110,7 @@ export const techs: TechsProps[] = [
 	{
 		title: 'Zustand',
 		subtitle: 'Store Management',
+		subtitlePT: 'Gestão de Estados',
 		image: images.Zustand.src,
 		backgroundColor: colors.techs.zustand,
 		url: 'https://zustand-demo.pmnd.rs/',
@@ -122,28 +132,39 @@ export interface Tech {
 }
 export interface Timeline {
 	title: string;
+	titlePT?: string;
 	type: 'company' | 'academic';
 	company: string;
 	iconCompany?: string;
 	projects?: string;
 	subtitle: string[];
+	subtitlePT?: string[];
 	time: string;
+	timePT?: string;
 	techs?: Tech[];
 }
 
 export const professional: Timeline[] = [
 	{
 		title: 'SI Consultant',
+		titlePT: 'Consultor SI',
 		company: 'ITSector',
 		type: 'company',
 		iconCompany: images.Work.src,
 		projects: 'MSE (Millennium BCP Corp)',
 		time: 'Apr 2024 - Current ',
+		timePT: 'Abr 2024 - Atual ',
 		subtitle: [
 			'Developed and maintained React and TypeScript code within a micro frontends architecture.',
 			'Collaborated with back-end teams and designers to enhance usability and user experience.',
 			'Participated in Scrum ceremonies, supporting planning, decision-making, and troubleshooting to drive project progress.',
 			'Utilized Azure DevOps for continuous integration.',
+		],
+		subtitlePT: [
+			'Desenvolvimento e manutenção de código em React e TypeScript numa arquitetura de micro frontends.',
+			'Colaboração com equipas de back-end e designers para melhorar a usabilidade e a experiência do utilizador.',
+			'Participação em cerimónias Scrum, apoiando o planeamento, a tomada de decisões e a resolução de problemas para impulsionar o progresso do projeto.',
+			'Utilização do Azure DevOps para integração contínua.',
 		],
 		techs: [
 			{
@@ -166,15 +187,22 @@ export const professional: Timeline[] = [
 	},
 	{
 		title: 'SI Programmer',
+		titlePT: 'Programador SI',
 		company: 'ITSector',
 		type: 'company',
 		iconCompany: images.Work.src,
 		projects: 'MSE (Millennium BCP Corp)',
 		time: 'Aug 2022 - Apr 2024',
+		timePT: 'Ago 2022 - Abr 2024',
 		subtitle: [
 			'Developed and maintained website of Millennium BCP Corp using React and TypeScript.',
 			'Collaborated with back-end teams and designers to improve usability.',
 			'Participated in Scrum ceremonies, contributing to project planning, decision-making, and troubleshooting, while working collaboratively with the team to ensure project progress',
+		],
+		subtitlePT: [
+			'Desenvolvimento e manutenção do website corporativo do Millennium BCP utilizando React e TypeScript.',
+			'Colaboração com equipas de back-end e designers para melhorar a usabilidade.',
+			'Participação em cerimónias Scrum, contribuindo para o planeamento, tomada de decisões e resolução de problemas, trabalhando de forma colaborativa para garantir o progresso do projeto.',
 		],
 
 		techs: [
@@ -201,17 +229,23 @@ export const professional: Timeline[] = [
 export const academic: Timeline[] = [
 	{
 		title: 'Computer Engineering',
+		titlePT: 'Engenharia Informática',
 		type: 'academic',
 		subtitle: ['Completed degree'],
+		subtitlePT: ['Licenciatura concluída'],
 		time: 'Sep 2019 - Jul 2022',
+		timePT: 'Set 2019 - Jul 2022',
 		company: 'ISPGaya',
 	},
 	{
 		title: 'Software Developer',
+		titlePT: 'Desenvolvedor de Software',
 		type: 'academic',
 		iconCompany: images.Work.src,
 		subtitle: ['Internship'],
+		subtitlePT: ['Estágio curricular'],
 		time: 'Fev 2022 - Jun 2022',
+		timePT: 'Fev 2022 - Jun 2022',
 		company: 'ITSector',
 	},
 ];
@@ -223,6 +257,7 @@ export interface ProjectProps {
 	headerIcon: string;
 	isSquared?: boolean;
 	label: string;
+	labelPT?: string;
 	gitHub?: string;
 	liveDemo: string;
 	leftColor: string;
@@ -235,6 +270,8 @@ export const cardsData: ProjectProps[] = [
 		title: 'MSE - Melhor Site Empresas',
 		type: 'company',
 		label: " I contributed to the front-end development and architectural design of this project at ITSector, collaborating with a team to build Millennium BCP's corporate platform. ",
+		labelPT:
+			'Contribuí para o desenvolvimento front-end e design arquitetural deste projeto na ITSector, colaborando com uma equipa para construir a plataforma corporativa do Millennium BCP.',
 		headerIcon: images.Millennium.src,
 		leftColor: colors.project.leftMSEColor,
 		isSquared: true,
@@ -266,6 +303,8 @@ export const cardsData: ProjectProps[] = [
 		title: 'E-commerce Store',
 		type: 'personal',
 		label: 'Responsive e-commerce website, featuring profile management, order history, filters, favorites, shopping cart, and purchase transactions.',
+		labelPT:
+			'Website e-commerce responsivo, com gestão de perfis, histórico de encomendas, filtros, favoritos, carrinho de compras e transações de compra.',
 		gitHub: 'https://github.com/BrunoFAC/storeWithNextJs',
 		liveDemo: 'https://dummy-store-fake-api.netlify.app/',
 		leftColor: colors.project.leftECommerceColor,
@@ -301,6 +340,7 @@ export const cardsData: ProjectProps[] = [
 		headerIcon: images.SiteHeader.src,
 		leftColor: colors.project.leftPortfolioColor,
 		label: 'Built a portfolio from scratch using styled-components for styling.',
+		labelPT: 'Criação de um portfólio utilizando styled-components para estilização.',
 		gitHub: 'https://github.com/BrunoFAC/brunoportfolio',
 		liveDemo: '',
 		techs: [

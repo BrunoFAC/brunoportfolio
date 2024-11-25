@@ -1,143 +1,23 @@
 import { FC, useState } from 'react';
-import styled, { css, keyframes } from 'styled-components';
-import { colors, device, Timeline } from '@/utils';
+import { colors, Timeline, useResources } from '@/utils';
 import { HighlightBox, Pulse } from '@/components';
 import { ItemDescription, ItemTitle } from '@/styles';
-
-const Container = styled.div`
-	display: flex;
-	padding-left: 6px;
-	gap: 16px;
-`;
-
-const ContainerPulse = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-`;
-
-const ContainerPosition = styled.div<{ $isLast: boolean }>`
-	display: flex;
-	flex-direction: column;
-	justify-content: start;
-	gap: 4px;
-	margin-bottom: ${({ $isLast }) => ($isLast ? '5px' : '25px')};
-`;
-
-const Connect = styled.span`
-	display: flex;
-	width: 1px;
-	min-height: 20px;
-	height: 100%;
-	background: ${colors.card.border};
-`;
-
-const ContainerTitle = styled.div`
-	display: flex;
-	flex-direction: row;
-	justify-content: start;
-	align-items: center;
-	gap: 8px;
-`;
-
-const IconWork = styled.img`
-	width: 16px;
-	height: 16px;
-	@media ${device.mobileM} {
-		width: 13px;
-		height: 13px;
-	}
-`;
-
-const ContainerPositionLocation = styled.div`
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	flex-wrap: wrap;
-	color: ${colors.gray.light};
-	gap: 4px;
-`;
-
-const ContainerTechs = styled.div`
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	flex-wrap: wrap;
-	color: ${colors.gray.light};
-	margin-top: 2px;
-	gap: 8px;
-
-	@media ${device.mobileM} {
-		display: grid;
-		gap: 8px;
-		grid-template-columns: repeat(2, 1fr);
-	}
-	@media ${device.mobileS} {
-		display: grid;
-		grid-template-columns: repeat(1, 1fr);
-	}
-`;
-
-const ContainerDetails = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: start;
-`;
-
-const ContainerDetailsLink = styled.div`
-	display: flex;
-	flex-direction: row;
-	justify-content: start;
-	align-items: center;
-	gap: 6px;
-	cursor: pointer;
-	user-select: none;
-`;
-
-const wiggle = keyframes`
-  0%, 90% {
-    transform: rotate(90deg) translateX(1px);
-  }
-  92% {
-    transform: rotate(85deg) translateX(2px);
-  }
-  95% {
-    transform: rotate(95deg) translateX(-1px);
-  }
-  98% {
-    transform: rotate(90deg) translateX(0px);
-  }
-`;
-
-const IconSeeDetails = styled.p<{ $seeMoreDetails: boolean }>`
-	color: ${colors.white};
-	transition: transform 0.4s ease;
-	font-weight: 700;
-	display: inline-block;
-	font-size: 15px;
-
-	transform: ${({ $seeMoreDetails }) =>
-		$seeMoreDetails ? 'rotate(-90deg) translateX(-1px)' : 'rotate(90deg) translateX(1px)'};
-
-	${({ $seeMoreDetails }) =>
-		!$seeMoreDetails &&
-		css`
-			animation: ${wiggle} 3.9s ease-in-out infinite;
-		`}
-`;
-
-const ContainerDescriptionDetails = styled.div`
-	width: 100%;
-`;
-
-const AccordionContent = styled.div<{ $expanded: boolean }>`
-	overflow: hidden;
-	transition: max-height 0.3s ease;
-	max-height: ${({ $expanded }) => ($expanded ? '500px' : '0px')};
-	display: flex;
-	flex-direction: column;
-`;
+import {
+	Container,
+	ContainerPulse,
+	Connect,
+	ContainerPosition,
+	ContainerTitle,
+	IconWork,
+	ContainerPositionLocation,
+	ContainerDetails,
+	ContainerDetailsLink,
+	IconSeeDetails,
+	AccordionContent,
+	ContainerDescriptionDetails,
+	ContainerTechs,
+} from './description.roles.styles';
+import { useCommonStore } from '@/store';
 
 export interface RolesProps {
 	roles: Timeline;
@@ -145,8 +25,17 @@ export interface RolesProps {
 }
 
 export const Roles: FC<RolesProps> = ({ roles, isLast }) => {
+	const resources = useResources();
 	const [seeMoreDetails, setSeeMoreDetails] = useState<boolean>(false);
-	const { company, time, iconCompany, type, title, projects, subtitle, techs } = roles;
+	const [isHovering, setIsHovering] = useState<boolean>(false);
+	const { company, subtitlePT, timePT, titlePT, time, iconCompany, type, title, projects, subtitle, techs } = roles;
+
+	const language = useCommonStore((store) => store.language);
+	const isEnglish = language === 'en';
+	const subtitleLabel = isEnglish ? subtitle : (subtitlePT ?? subtitle);
+	const timeLabel = isEnglish ? time : timePT;
+	const titleLabel = isEnglish ? title : titlePT;
+
 	return (
 		<Container>
 			<ContainerPulse>
@@ -156,34 +45,42 @@ export const Roles: FC<RolesProps> = ({ roles, isLast }) => {
 			<ContainerPosition $isLast={isLast}>
 				<ContainerTitle>
 					{iconCompany && <IconWork src={iconCompany} alt={iconCompany} />}
-					<ItemTitle>{title}</ItemTitle>
+					<ItemTitle>{titleLabel}</ItemTitle>
 				</ContainerTitle>
 				<ContainerPositionLocation>
 					<ItemDescription fontWeight={600}>{company}</ItemDescription>
-					<ItemDescription>· {time}</ItemDescription>
+					<ItemDescription>· {timeLabel}</ItemDescription>
 				</ContainerPositionLocation>
 				{projects && (
 					<ItemDescription>
 						<ItemDescription color={colors.white} fontWeight={700}>
-							Projects:
+							{resources.overview.description.roles.projects}
 						</ItemDescription>
 						{` ${projects}`}
 					</ItemDescription>
 				)}
 				<ContainerDetails>
-					{subtitle.length > 1 && (
-						<ContainerDetailsLink onClick={() => setSeeMoreDetails(!seeMoreDetails)}>
+					{subtitleLabel.length > 1 && (
+						<ContainerDetailsLink
+							onMouseEnter={() => setIsHovering(true)}
+							onMouseLeave={() => setIsHovering(false)}
+							onClick={() => setSeeMoreDetails(!seeMoreDetails)}
+						>
 							<ItemDescription fontWeight={600} color={colors.white}>
-								{seeMoreDetails ? 'Hide details' : 'See details'}
+								{seeMoreDetails
+									? resources.overview.description.roles.hideDetails
+									: resources.overview.description.roles.seeDetails}
 							</ItemDescription>
-							<IconSeeDetails $seeMoreDetails={seeMoreDetails}>{'>'}</IconSeeDetails>
+							<IconSeeDetails $isHovering={isHovering} $seeMoreDetails={seeMoreDetails}>
+								{'>'}
+							</IconSeeDetails>
 						</ContainerDetailsLink>
 					)}
 					{type === 'academic' ? (
-						subtitle.map((e, key) => <ItemDescription key={`${e}-${key}`}>· {e}</ItemDescription>)
+						subtitleLabel.map((e, key) => <ItemDescription key={`${e}-${key}`}>· {e}</ItemDescription>)
 					) : (
 						<AccordionContent $expanded={seeMoreDetails}>
-							{[...subtitle]
+							{[...subtitleLabel]
 								.sort((a, b) => b.length - a.length)
 								.map((e, key) => (
 									<ContainerDescriptionDetails key={`${e}-${key}`}>
@@ -197,11 +94,8 @@ export const Roles: FC<RolesProps> = ({ roles, isLast }) => {
 				{techs && (
 					<ContainerTechs>
 						{[...techs]
-							//reorder for text length
 							.sort((a, b) => b.title.length - a.title.length)
-							?.map((e, key) => (
-								<HighlightBox key={`${e.title}-${key}`} icon={e.icon} text={e.title} />
-							))}
+							?.map((e, key) => <HighlightBox key={`${e.title}-${key}`} icon={e.icon} text={e.title} />)}
 					</ContainerTechs>
 				)}
 			</ContainerPosition>

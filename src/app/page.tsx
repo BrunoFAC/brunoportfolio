@@ -3,7 +3,7 @@ import { ProfileInfo, TechStacks, Overview, Projects } from '@/sections';
 import './page.css';
 import { FC } from 'react';
 import styled from 'styled-components';
-import { Alert, Background } from '@/components';
+import { Alert, Background, Footer, HeaderNavBar, Sidebar } from '@/components';
 import { colors, device } from '@/utils';
 
 const Page = styled.div`
@@ -45,6 +45,7 @@ const Container = styled.div`
 const ContainerProfile = styled.div`
 	height: 100%;
 	flex-direction: column;
+	margin: 0px 0px 16px 0px;
 	@media ${device.tabletM} {
 		gap: 16px;
 		display: flex;
@@ -55,14 +56,14 @@ const ContainerProfile = styled.div`
 	@media ${device.laptop} {
 		width: 45%;
 		display: flex;
-		top: 40px;
+		top: 16px;
 		gap: 16px;
 		position: sticky;
 	}
 	@media ${device.desktop} {
 		width: 40%;
 		display: flex;
-		top: 60px;
+		top: 16px;
 		gap: 16px;
 		position: sticky;
 	}
@@ -81,12 +82,12 @@ const ContainerInfo = styled.div`
 	@media ${device.laptop} {
 		width: 55%;
 		display: flex;
-		margin: 40px 0 16px;
+		margin: 16px 0 16px;
 		gap: 16px;
 	}
 	@media ${device.desktop} {
 		gap: 16px;
-		margin: 60px 0 16px;
+		margin: 16px 0 16px;
 		width: 60%;
 		gap: 16px;
 	}
@@ -97,7 +98,8 @@ const Home: FC = () => {
 		<Page>
 			<Alert />
 			<Background />
-			{/* <HeaderNavBar /> */}
+			<Sidebar />
+			<HeaderNavBar />
 			<Container>
 				<ContainerProfile>
 					<ProfileInfo timer={0} />
@@ -108,6 +110,7 @@ const Home: FC = () => {
 					<Projects timer={1000} />
 				</ContainerInfo>
 			</Container>
+			<Footer />
 		</Page>
 	);
 };

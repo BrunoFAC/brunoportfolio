@@ -2,6 +2,7 @@ import { FC } from 'react';
 import styled from 'styled-components';
 import { InfoViews } from '../views';
 import { contactsData } from '@/utils';
+import { useCommonStore } from '@/store';
 
 const Container = styled.div`
 	display: flex;
@@ -21,10 +22,18 @@ export interface IconsWithTooltipProps {
 
 export const Contacts: FC = () => {
 	const { IconTextButton } = InfoViews;
+	const language = useCommonStore((store) => store.language);
+	const isEnglish = language === 'en';
 	return (
 		<Container>
 			{contactsData.map((e, key) => (
-				<IconTextButton icon={e.icon} text={e.text} type={e.type} url={e.url} key={`${e.text}-${key}`} />
+				<IconTextButton
+					icon={e.icon}
+					text={!isEnglish && e.textPT ? e.textPT : e.text}
+					type={e.type}
+					url={e.url}
+					key={`${e.text}-${key}`}
+				/>
 			))}
 		</Container>
 	);

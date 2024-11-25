@@ -9,6 +9,7 @@ const Container = styled.div`
 	width: -moz-available;
 	width: -webkit-fill-available;
 	width: fill-available;
+	text-align: center;
 	justify-content: center;
 	align-items: center;
 	padding: 40px;

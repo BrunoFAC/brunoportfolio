@@ -7,10 +7,11 @@ export interface IconTextButtonProps {
 	icon: string;
 	text: string;
 	url: string;
+	urlPT?: string;
 	type: IconType;
 }
 
-export const IconTextButton: FC<IconTextButtonProps> = ({ icon, text, type, url }) => {
+export const IconTextButton: FC<IconTextButtonProps> = ({ icon, text, type, urlPT, url }) => {
 	const { openLinks } = useContacts();
 
 	const width = useMemo(() => {
@@ -18,5 +19,5 @@ export const IconTextButton: FC<IconTextButtonProps> = ({ icon, text, type, url 
 		return type === 'copy-email' ? '15%' : '50px';
 	}, [type]);
 
-	return <StyledButton icon={icon} text={text} width={width} onClick={() => openLinks({ type, url })} />;
+	return <StyledButton icon={icon} text={text} width={width} onClick={() => openLinks({ type, url, urlPT })} />;
 };

@@ -3,7 +3,7 @@ import { ProfileInfo, TechStacks, Overview, Projects } from '@/sections';
 import './page.css';
 import { FC } from 'react';
 import styled from 'styled-components';
-import { Alert, Background, Footer, HeaderNavBar, Sidebar } from '@/components';
+import { Alert, Background, OpenImageModal, Footer, HeaderNavBar, Sidebar } from '@/components';
 import { colors, device } from '@/utils';
 
 const Page = styled.div`
@@ -97,6 +97,7 @@ const Home: FC = () => {
 	return (
 		<Page>
 			<Alert />
+			<OpenImageModal />
 			<Background />
 			<Sidebar />
 			<HeaderNavBar />

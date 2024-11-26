@@ -127,14 +127,14 @@ export const Sidebar: FC = () => {
 					<NavList>
 						{[...contactsData].map((e, key) => {
 							const widthEmail = e.type === 'email' ? '70%' : '100%';
-							const { icon, text, type, url, textPT } = e;
+							const { icon, text, type, url, urlPT, textPT } = e;
 							return (
 								<StyledButton
 									key={`${text}-${key}`}
 									icon={icon}
 									text={isEnglish ? text : (textPT ?? text)}
 									width={type === 'copy-email' ? 'min-content' : widthEmail}
-									onClick={() => openLinks({ type, url })}
+									onClick={() => openLinks({ type, url, urlPT })}
 								/>
 							);
 						})}

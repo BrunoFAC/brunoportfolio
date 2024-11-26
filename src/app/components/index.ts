@@ -13,3 +13,4 @@ export * from './simpleButton';
 export * from './footer';
 export * from './idiom';
 export * from './sidebar';
+export * from './openImageModal';

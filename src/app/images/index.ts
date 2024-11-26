@@ -31,9 +31,12 @@ import Copy from './copy.png';
 import PT from './portugal.png';
 import Menu from './list.png';
 import EN from './en.png';
+import PortfolioImage from './portfolioImage.png';
+import MSEImage from './mseImage.png';
 
 export const images = {
 	MarketGIF,
+	PortfolioImage,
 	Menu,
 	PT,
 	EN,
@@ -66,4 +69,5 @@ export const images = {
 	Millennium,
 	Work,
 	Copy,
+	MSEImage,
 };

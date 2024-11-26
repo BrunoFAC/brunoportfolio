@@ -16,7 +16,7 @@ export const colors = {
 	},
 	project: {
 		leftMSEColor: '#D1185E',
-		leftECommerceColor: '#fff',
+		leftECommerceColor: '#1675D1',
 		leftPortfolioColor: '#647D86',
 	},
 	techs: {

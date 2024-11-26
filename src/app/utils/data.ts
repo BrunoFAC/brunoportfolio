@@ -9,6 +9,7 @@ export interface ContactsDataProps {
 	text: string;
 	textPT?: string;
 	url: string;
+	urlPT?: string;
 	type: IconType;
 }
 
@@ -44,6 +45,7 @@ export const contactsData: ContactsDataProps[] = [
 		textPT: 'Currículo',
 		type: 'cv',
 		url: '/assets/cv-bruno.pdf',
+		urlPT: '/assets/cv-bruno-pt.pdf',
 	},
 ];
 
@@ -257,6 +259,7 @@ export interface ProjectProps {
 	headerIcon: string;
 	isSquared?: boolean;
 	label: string;
+	image: string;
 	labelPT?: string;
 	gitHub?: string;
 	liveDemo: string;
@@ -274,6 +277,7 @@ export const cardsData: ProjectProps[] = [
 			'Contribuí para o desenvolvimento front-end e design arquitetural deste projeto na ITSector, colaborando com uma equipa para construir a plataforma corporativa do Millennium BCP.',
 		headerIcon: images.Millennium.src,
 		leftColor: colors.project.leftMSEColor,
+		image: images.MSEImage.src,
 		isSquared: true,
 		liveDemo: 'https://corp.millenniumbcp.pt/',
 		techs: [
@@ -308,7 +312,8 @@ export const cardsData: ProjectProps[] = [
 		gitHub: 'https://github.com/BrunoFAC/storeWithNextJs',
 		liveDemo: 'https://dummy-store-fake-api.netlify.app/',
 		leftColor: colors.project.leftECommerceColor,
-		headerIcon: images.StoreIconDarkMode.src,
+		image: images.Store.src,
+		headerIcon: images.StoreIcon.src,
 		techs: [
 			{
 				title: 'React',
@@ -339,6 +344,7 @@ export const cardsData: ProjectProps[] = [
 		type: 'personal',
 		headerIcon: images.SiteHeader.src,
 		leftColor: colors.project.leftPortfolioColor,
+		image: images.PortfolioImage.src,
 		label: 'Built a portfolio from scratch using styled-components for styling.',
 		labelPT: 'Criação de um portfólio utilizando styled-components para estilização.',
 		gitHub: 'https://github.com/BrunoFAC/brunoportfolio',

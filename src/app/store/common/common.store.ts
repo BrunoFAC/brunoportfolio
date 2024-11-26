@@ -8,6 +8,7 @@ const initialData: CommonState = {
 	toast: 'hidden',
 	language: 'en',
 	isOpenSidebar: false,
+	imageModal: '',
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -39,8 +40,17 @@ const actions = (set: any): CommonActions => {
 			`${storeIdentifier}/set-is-open-sidebar`
 		);
 	};
+	const setImageModal = (imageModal: string) => {
+		set(
+			(state: CommonState) => {
+				state.imageModal = imageModal;
+			},
+			false,
+			`${storeIdentifier}/set-image-modal`
+		);
+	};
 
-	return { setToast, setIsOpenSidebar, setLanguage };
+	return { setToast, setIsOpenSidebar, setImageModal, setLanguage };
 };
 
 const storeData: StateCreator<CommonStore> = (set) => ({

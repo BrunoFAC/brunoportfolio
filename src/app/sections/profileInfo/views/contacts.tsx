@@ -32,6 +32,7 @@ export const Contacts: FC = () => {
 					text={!isEnglish && e.textPT ? e.textPT : e.text}
 					type={e.type}
 					url={e.url}
+					urlPT={e.urlPT}
 					key={`${e.text}-${key}`}
 				/>
 			))}

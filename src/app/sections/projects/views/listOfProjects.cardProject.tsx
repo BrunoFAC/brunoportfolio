@@ -14,6 +14,8 @@ import {
 	ContainerTechs,
 	ContainerIcons,
 	Icon,
+	ImageSite,
+	ContainerImageSite,
 } from './listOfProjects.cardProject.styles';
 import { useCommonStore } from '@/store';
 
@@ -23,12 +25,16 @@ export interface CardProjectProps {
 export const CardProject: FC<CardProjectProps> = (props) => {
 	const resources = useResources();
 	const language = useCommonStore((store) => store.language);
+	const setImageModal = useCommonStore((store) => store.setImageModal);
+
 	const isEnglish = language === 'en';
+
 	const openLinks = (url: string) => {
 		window.open(url, '_blank');
 	};
 
-	const { gitHub, label, liveDemo, title, labelPT, headerIcon, isSquared, techs, type, leftColor } = props.card;
+	const { gitHub, label, liveDemo, title, labelPT, headerIcon, image, isSquared, techs, type, leftColor } =
+		props.card;
 
 	const typeOfProject =
 		type === 'company'
@@ -57,6 +63,9 @@ export const CardProject: FC<CardProjectProps> = (props) => {
 					<ContainerText>
 						<ItemDescription>{isEnglish ? label : labelPT}</ItemDescription>
 					</ContainerText>
+					<ContainerImageSite>
+						<ImageSite onClick={() => setImageModal(image)} src={image} alt={image} />
+					</ContainerImageSite>
 					<ContainerTechs>
 						{[...(techs ?? [])]
 							?.sort((a, b) => b?.title?.length - a?.title?.length)

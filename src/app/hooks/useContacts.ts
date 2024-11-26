@@ -3,6 +3,7 @@ import { useCommonStore } from '@/store';
 
 export interface ContactsProps {
 	url: string;
+	urlPT?: string;
 	type: IconType;
 }
 
@@ -10,20 +11,22 @@ export const useContacts = () => {
 	const resources = useResources();
 	const language = useCommonStore((store) => store.language);
 	const setToast = useCommonStore((store) => store.setToast);
+	const isEnglish = language === 'en';
 
 	const openLinks = (contact: ContactsProps) => {
-		const { type, url } = contact;
+		const { type, url, urlPT } = contact;
 		switch (type) {
 			case 'cv':
+				const isPTCV = !isEnglish && urlPT;
 				const a = document.createElement('a');
-				a.href = url;
-				a.download = 'cv-bruno.pdf';
+				a.href = isPTCV ? urlPT : url;
+				a.download = isPTCV ? 'cv-bruno-pt.pdf' : 'cv-bruno.pdf';
 				a.click();
 				break;
 
 			case 'email':
 				const subject = encodeURIComponent(resources.profileInfo.iconTextButton.subject);
-				const body = encodeURIComponent(language === 'en' ? bodyText : bodyTextPT);
+				const body = encodeURIComponent(isEnglish ? bodyText : bodyTextPT);
 
 				const mailtoLink = `mailto:${url}?subject=${subject}&body=${body}`;
 				window.location.href = mailtoLink;

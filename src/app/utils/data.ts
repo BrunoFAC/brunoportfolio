@@ -348,7 +348,7 @@ export const cardsData: ProjectProps[] = [
 		label: 'Built a portfolio from scratch using styled-components for styling.',
 		labelPT: 'Criação de um portfólio utilizando styled-components para estilização.',
 		gitHub: 'https://github.com/BrunoFAC/brunoportfolio',
-		liveDemo: 'https://bruno-carvalho-dev.netlify.app/',
+		liveDemo: 'https://bruno-carvalho-dev.pt/',
 		techs: [
 			{
 				title: 'React',

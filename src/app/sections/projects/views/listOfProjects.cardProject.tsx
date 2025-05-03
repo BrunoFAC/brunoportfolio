@@ -33,7 +33,7 @@ export const CardProject: FC<CardProjectProps> = (props) => {
 		window.open(url, '_blank');
 	};
 
-	const { gitHub, label, liveDemo, title, labelPT, headerIcon, image, isSquared, techs, type, leftColor } =
+	const { gitHub, label, video, liveDemo, title, labelPT, headerIcon, image, isSquared, techs, type, leftColor } =
 		props.card;
 
 	const typeOfProject =
@@ -42,7 +42,7 @@ export const CardProject: FC<CardProjectProps> = (props) => {
 			: resources.projects.listOfProjects.card.typeOfProject.personal;
 
 	const elementRef = useRef(null);
-	const { isVisible } = useVisibility(elementRef, 1000);
+	const { isVisible } = useVisibility(elementRef, 100);
 	const [stopAnimation, setStopAnimation] = useState<boolean>(false);
 
 	useEffect(() => {
@@ -82,6 +82,7 @@ export const CardProject: FC<CardProjectProps> = (props) => {
 					<ContainerIcons>
 						{gitHub && <Icon src={images.Github.src} onClick={() => openLinks(gitHub)} alt={`github`} />}
 						<Icon src={images.Link.src} onClick={() => openLinks(liveDemo)} alt={`livedemo`} />
+						{video && <Icon src={images.Video.src} onClick={() => openLinks(video)} alt={`video`} />}
 					</ContainerIcons>
 				</InsideContainer>
 			</Container>

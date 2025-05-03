@@ -8,19 +8,20 @@ const pulseAnimation = keyframes`
   }
 `;
 
-const Pulsing = styled.div<{ $width: number; $isPulsing?: boolean }>`
+const Pulsing = styled.div<{ $width: number; $isPulsing?: boolean; $pulseColor?: keyof typeof colors }>`
 	width: ${({ $width }) => `${$width}px`};
 	aspect-ratio: 1;
 	border-radius: 50%;
-	background: ${colors.primary};
+	background: ${({ $pulseColor }) => $pulseColor ?? colors.primary};
 	margin: 8px 0;
-	box-shadow: 0 0 0 0 ${colors.primary};
+	box-shadow: 0 0 0 0 ${({ $pulseColor }) => $pulseColor ?? colors.primary};
 	animation: ${({ $isPulsing }) => ($isPulsing ? pulseAnimation : '')} 1s infinite;
 `;
 export interface PulseProps {
 	width: number;
 	isPulsing?: boolean;
+	pulseColor?: keyof typeof colors;
 }
-export const Pulse: FC<PulseProps> = ({ width, isPulsing = true }) => {
-	return <Pulsing $width={width} $isPulsing={isPulsing} />;
+export const Pulse: FC<PulseProps> = ({ width, pulseColor, isPulsing = true }) => {
+	return <Pulsing $width={width} $pulseColor={pulseColor} $isPulsing={isPulsing} />;
 };

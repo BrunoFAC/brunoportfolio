@@ -20,6 +20,8 @@ import DevOps from './devops.png';
 import Git from './git.png';
 import Typescript from './typescript.png';
 import Zustand from './zustand.png';
+import MySQL from './mysql.png';
+import Node from './nodejs.png';
 import SippingCoffee from './sippingCoffee.gif';
 import ModuleFederation from './moduleFederation.png';
 import Arrow from './arrow.svg';
@@ -32,12 +34,23 @@ import PT from './portugal.png';
 import Menu from './list.png';
 import EN from './en.png';
 import PortfolioImage from './portfolioImage.png';
+import Video from './video.png';
 import MSEImage from './mseImage.png';
+import TrackerAILogo from './trackerAILogo.svg';
+import ViteLogo from './viteLogo.svg';
+import GitLabLogo from './gitLabLogo.png';
+import KOLsImage from './KOLsImage.png';
 
 export const images = {
 	MarketGIF,
+	GitLabLogo,
+	TrackerAILogo,
+	ViteLogo,
 	PortfolioImage,
+	KOLsImage,
 	Menu,
+	MySQL,
+	Node,
 	PT,
 	EN,
 	ModuleFederation,
@@ -70,4 +83,5 @@ export const images = {
 	Work,
 	Copy,
 	MSEImage,
+	Video,
 };

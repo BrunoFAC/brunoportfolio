@@ -193,6 +193,15 @@ export const Container = styled.div`
 	}
 `;
 
+export const ContainerButton = styled.div`
+	display: flex;
+	height: min-content;
+	justify-content: flex-start;
+	flex-direction: row;
+	padding: 0px 24px;
+	gap: 8px;
+`;
+
 export const InsideContainer = styled.div`
 	display: flex;
 	flex-direction: column;

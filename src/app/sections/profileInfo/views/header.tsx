@@ -40,7 +40,7 @@ const ContainerText = styled.div`
 
 const ContainerWork = styled.div`
 	display: flex;
-	background: ${colors.secondary};
+	background: ${colors.shadowedRed};
 	padding: 0px 8px;
 	border-radius: 16px;
 	cursor: pointer;
@@ -56,7 +56,7 @@ const ContainerWork = styled.div`
 `;
 
 const WorkSpan = styled.p`
-	color: ${colors.primary};
+	color: ${colors.red};
 	font-weight: 600;
 	font-size: 10px;
 	@media ${device.mobileM} {
@@ -71,7 +71,7 @@ export const Header: FC = () => {
 			<Avatar $image={images.Avatar.src} $hoveredImage={images.SippingCoffee.src} />
 			<ContainerText>
 				<ContainerWork>
-					<Pulse width={8} />
+					<Pulse pulseColor="red" width={8} />
 					<WorkSpan>{resources.profileInfo.header.freelancer}</WorkSpan>
 				</ContainerWork>
 				<Title color={colors.primary}>Bruno Carvalho</Title>

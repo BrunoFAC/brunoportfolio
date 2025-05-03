@@ -6,9 +6,10 @@ export const colors = {
 	yellow: 'yellow',
 	button: {
 		hovered: '#ffffff44',
-		bgAnimation: 'radial-gradient(circle, #ffffff22, transparent 70%)',
+		bgAnimation: 'radial-gradient(circle,rgba(48, 0, 0, 0.13), transparent 70%)',
 	},
-
+	red: '#ff0000',
+	shadowedRed: '#ff000038',
 	gray: { default: '#2f2e2e', dark: '#1e1e1e', light: '#d1d1d1' },
 	card: {
 		background: 'linear-gradient(45deg, #00000054, #1e1d1ded)',
@@ -18,6 +19,7 @@ export const colors = {
 		leftMSEColor: '#D1185E',
 		leftECommerceColor: '#1675D1',
 		leftPortfolioColor: '#647D86',
+		leftKOLSColor: '#2B639A',
 	},
 	techs: {
 		react: '#60d9fa36',

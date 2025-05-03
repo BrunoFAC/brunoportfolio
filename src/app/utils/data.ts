@@ -59,6 +59,7 @@ export interface TechsProps {
 	image: string;
 	backgroundColor: string;
 	url: string;
+	type: 'hobby' | 'professional';
 }
 
 export const techs: TechsProps[] = [
@@ -69,6 +70,7 @@ export const techs: TechsProps[] = [
 		image: images.React.src,
 		backgroundColor: colors.techs.react,
 		url: 'https://react.dev/',
+		type: 'professional',
 	},
 	{
 		title: 'Typescript',
@@ -77,6 +79,7 @@ export const techs: TechsProps[] = [
 		image: images.Typescript.src,
 		backgroundColor: colors.techs.typescript,
 		url: 'https://www.typescriptlang.org/',
+		type: 'professional',
 	},
 	{
 		title: 'Next',
@@ -84,6 +87,7 @@ export const techs: TechsProps[] = [
 		image: images.Next.src,
 		backgroundColor: colors.techs.next,
 		url: 'https://nextjs.org/',
+		type: 'professional',
 	},
 	{
 		title: 'Azure DevOps',
@@ -92,6 +96,7 @@ export const techs: TechsProps[] = [
 		image: images.DevOps.src,
 		backgroundColor: colors.techs.devops,
 		url: 'https://azure.microsoft.com/pt-pt/pricing/purchase-options/azure-account?icid=azure-devops',
+		type: 'professional',
 	},
 	{
 		title: 'Git',
@@ -100,6 +105,7 @@ export const techs: TechsProps[] = [
 		image: images.Git.src,
 		backgroundColor: colors.techs.git,
 		url: 'https://git-scm.com/',
+		type: 'professional',
 	},
 	{
 		title: 'GitHub',
@@ -108,6 +114,7 @@ export const techs: TechsProps[] = [
 		image: images.Github.src,
 		backgroundColor: colors.techs.github,
 		url: 'https://github.com/',
+		type: 'professional',
 	},
 	{
 		title: 'Zustand',
@@ -116,6 +123,7 @@ export const techs: TechsProps[] = [
 		image: images.Zustand.src,
 		backgroundColor: colors.techs.zustand,
 		url: 'https://zustand-demo.pmnd.rs/',
+		type: 'professional',
 	},
 	{
 		title: 'Module Federation',
@@ -123,6 +131,41 @@ export const techs: TechsProps[] = [
 		image: images.ModuleFederation.src,
 		backgroundColor: colors.techs.react,
 		url: 'https://module-federation.io/',
+		type: 'professional',
+	},
+	{
+		title: 'Node',
+		subtitle: 'JavaScript Runtime',
+		image: images.Node.src,
+		backgroundColor: colors.techs.zustand,
+		url: 'https://nodejs.org/en/',
+		type: 'hobby',
+	},
+	{
+		title: 'GitLab',
+		subtitle: 'Code Management',
+		subtitlePT: 'Gestão de Código',
+		image: images.GitLabLogo.src,
+		backgroundColor: colors.techs.git,
+		url: 'https://https://gitlab.com/',
+		type: 'hobby',
+	},
+	{
+		title: 'MySQL',
+		subtitle: 'Relational Database',
+		subtitlePT: 'Base de Dados Relacional',
+		image: images.MySQL.src,
+		backgroundColor: colors.techs.react,
+		url: 'https://module-federation.io/',
+		type: 'hobby',
+	},
+	{
+		title: 'Vite',
+		subtitle: 'Build Tool',
+		image: images.ViteLogo.src,
+		backgroundColor: colors.techs.zustand,
+		url: 'https://vite.dev/',
+		type: 'hobby',
 	},
 ];
 // #endregion SECTION TECH STACKS Techs
@@ -263,6 +306,7 @@ export interface ProjectProps {
 	labelPT?: string;
 	gitHub?: string;
 	liveDemo: string;
+	video?: string;
 	leftColor: string;
 	type: 'personal' | 'company';
 	techs?: Tech[];
@@ -280,6 +324,7 @@ export const cardsData: ProjectProps[] = [
 		image: images.MSEImage.src,
 		isSquared: true,
 		liveDemo: 'https://corp.millenniumbcp.pt/',
+		video: 'https://bo.millenniumvideos.net/videos/wQgk4w3F2eJfeG0t/MSE-1080.mp4',
 		techs: [
 			{
 				title: 'React',
@@ -300,6 +345,44 @@ export const cardsData: ProjectProps[] = [
 			{
 				title: 'Module Federation',
 				icon: images.ModuleFederation.src,
+			},
+		],
+	},
+	{
+		title: 'KOLs Dashboard',
+		type: 'personal',
+		label: 'I worked on the development of the APIs, front-end, and database for this dashboard that analyzes influencer performance and token trends.',
+		labelPT:
+			'Contribuí para o desenvolvimento das APIs, front-end e base de dados deste dashboard que analisa o desempenho de influenciadores e tendências de tokens.',
+		liveDemo: 'https://t.co/Vc47qS8KBl',
+		video: 'https://x.com/i/status/1895927366410539045',
+		leftColor: colors.project.leftKOLSColor,
+		image: images.KOLsImage.src,
+		headerIcon: images.TrackerAILogo.src,
+		techs: [
+			{
+				title: 'React',
+				icon: images.React.src,
+			},
+			{
+				title: 'Typescript',
+				icon: images.Typescript.src,
+			},
+			{
+				title: 'Vite',
+				icon: images.ViteLogo.src,
+			},
+			{
+				title: 'GitLab',
+				icon: images.GitLabLogo.src,
+			},
+			{
+				title: 'Node',
+				icon: images.Node.src,
+			},
+			{
+				title: 'MySQL',
+				icon: images.MySQL.src,
 			},
 		],
 	},

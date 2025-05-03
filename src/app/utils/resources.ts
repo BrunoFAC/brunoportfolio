@@ -124,6 +124,8 @@ export const resourcesEN = {
 	},
 	techStacks: {
 		title: 'Tech Stacks',
+		professional: 'Professional',
+		hobby: 'Hobby',
 		subtitle: {
 			the: 'The',
 			primaryTechnologies: 'primary technologies',
@@ -151,11 +153,17 @@ export const resourcesEN = {
 			zustand: {
 				subtitle: 'Store Management',
 			},
+			node: {
+				subtitle: 'JavaScript Runtime',
+			},
+			mysql: {
+				subtitle: 'Relational Database',
+			},
 		},
 	},
 };
 
-export const resourcesPT = {
+export const resourcesPT: typeof resourcesEN = {
 	alert: 'E-mail copiado para a área de transferência!',
 	loading: 'Aguarde um momento... só a despertar o site',
 	footer: 'Bruno C. © Todos os direitos reservados',
@@ -273,6 +281,8 @@ export const resourcesPT = {
 		},
 	},
 	techStacks: {
+		professional: 'Profissional',
+		hobby: 'Hobby',
 		title: 'Tecnologias',
 		subtitle: {
 			the: 'As',
@@ -300,6 +310,12 @@ export const resourcesPT = {
 			},
 			zustand: {
 				subtitle: 'Gestão de Estados',
+			},
+			node: {
+				subtitle: 'Ambiente de Execução JavaScript',
+			},
+			mysql: {
+				subtitle: 'Base de Dados Relacional',
 			},
 		},
 	},

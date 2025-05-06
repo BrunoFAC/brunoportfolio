@@ -136,6 +136,7 @@ export const techs: TechsProps[] = [
 	{
 		title: 'Node',
 		subtitle: 'JavaScript Runtime',
+		subtitlePT: 'Ambiente de execução JS',
 		image: images.Node.src,
 		backgroundColor: colors.techs.zustand,
 		url: 'https://nodejs.org/en/',
@@ -162,6 +163,7 @@ export const techs: TechsProps[] = [
 	{
 		title: 'Vite',
 		subtitle: 'Build Tool',
+		subtitlePT: 'Ferramenta de Build',
 		image: images.ViteLogo.src,
 		backgroundColor: colors.techs.zustand,
 		url: 'https://vite.dev/',
@@ -302,17 +304,56 @@ export interface ProjectProps {
 	headerIcon: string;
 	isSquared?: boolean;
 	label: string;
-	image: string;
+	image?: string;
 	labelPT?: string;
 	gitHub?: string;
-	liveDemo: string;
+	liveDemo?: string;
 	video?: string;
 	leftColor: string;
 	type: 'personal' | 'company';
 	techs?: Tech[];
+	date?: string;
+	datePT?: string;
 }
 
 export const cardsData: ProjectProps[] = [
+	{
+		title: 'Credit Brokers',
+		type: 'company',
+		label: 'As team leader, I’m leading the front-end development and consolidating the solution’s architecture, ensuring an efficient and scalable structure for Millennium BCP’s backoffice platform dedicated to managing credit brokers, currently under development.',
+		labelPT:
+			'Enquanto team leader, lidero o desenvolvimento front-end e a consolidação da arquitetura da solução, garantindo uma estrutura eficiente e escalável para esta plataforma de backoffice do Millennium BCP dedicada à gestão de intermediários de crédito, atualmente em desenvolvimento.',
+		headerIcon: images.Millennium.src,
+		leftColor: colors.project.leftMSEColor,
+		date: '2024/12 - Current',
+		datePT: '2024/12 - Presente',
+		isSquared: true,
+		liveDemo: '',
+		video: '',
+		techs: [
+			{
+				title: 'React',
+				icon: images.React.src,
+			},
+			{
+				title: 'Typescript',
+				icon: images.Typescript.src,
+			},
+			{
+				title: 'Zustand',
+				icon: images.Zustand.src,
+			},
+			{
+				title: 'Azure DevOps',
+				icon: images.DevOps.src,
+			},
+			{
+				title: 'Module Federation',
+				icon: images.ModuleFederation.src,
+			},
+		],
+	},
+
 	{
 		title: 'MSE - Melhor Site Empresas',
 		type: 'company',
@@ -322,6 +363,8 @@ export const cardsData: ProjectProps[] = [
 		headerIcon: images.Millennium.src,
 		leftColor: colors.project.leftMSEColor,
 		image: images.MSEImage.src,
+		datePT: '2022/08 - 2024/12',
+		date: '2022/08 - 2024/12',
 		isSquared: true,
 		liveDemo: 'https://corp.millenniumbcp.pt/',
 		video: 'https://bo.millenniumvideos.net/videos/wQgk4w3F2eJfeG0t/MSE-1080.mp4',

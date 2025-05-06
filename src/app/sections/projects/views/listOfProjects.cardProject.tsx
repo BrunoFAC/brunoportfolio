@@ -33,8 +33,22 @@ export const CardProject: FC<CardProjectProps> = (props) => {
 		window.open(url, '_blank');
 	};
 
-	const { gitHub, label, video, liveDemo, title, labelPT, headerIcon, image, isSquared, techs, type, leftColor } =
-		props.card;
+	const {
+		gitHub,
+		label,
+		video,
+		liveDemo,
+		title,
+		date,
+		labelPT,
+		headerIcon,
+		image,
+		isSquared,
+		techs,
+		type,
+		leftColor,
+		datePT,
+	} = props.card;
 
 	const typeOfProject =
 		type === 'company'
@@ -60,12 +74,19 @@ export const CardProject: FC<CardProjectProps> = (props) => {
 							<ItemDescription fontWeight={400}>{typeOfProject}</ItemDescription>
 						</ContainerTitleLabel>
 					</ContainerText>
+					{date && (
+						<ContainerText>
+							<ItemDescription>{!isEnglish && datePT ? datePT : date}</ItemDescription>
+						</ContainerText>
+					)}
 					<ContainerText>
 						<ItemDescription>{isEnglish ? label : labelPT}</ItemDescription>
 					</ContainerText>
-					<ContainerImageSite>
-						<ImageSite onClick={() => setImageModal(image)} src={image} alt={image} />
-					</ContainerImageSite>
+					{image && (
+						<ContainerImageSite>
+							<ImageSite onClick={() => setImageModal(image)} src={image} alt={image} />
+						</ContainerImageSite>
+					)}
 					<ContainerTechs>
 						{[...(techs ?? [])]
 							?.sort((a, b) => b?.title?.length - a?.title?.length)
@@ -81,7 +102,9 @@ export const CardProject: FC<CardProjectProps> = (props) => {
 					</ContainerTechs>
 					<ContainerIcons>
 						{gitHub && <Icon src={images.Github.src} onClick={() => openLinks(gitHub)} alt={`github`} />}
-						<Icon src={images.Link.src} onClick={() => openLinks(liveDemo)} alt={`livedemo`} />
+						{liveDemo && (
+							<Icon src={images.Link.src} onClick={() => openLinks(liveDemo)} alt={`livedemo`} />
+						)}
 						{video && <Icon src={images.Video.src} onClick={() => openLinks(video)} alt={`video`} />}
 					</ContainerIcons>
 				</InsideContainer>

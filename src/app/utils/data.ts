@@ -335,16 +335,6 @@ export const professional: Timeline[] = [
 
 export const academic: Timeline[] = [
 	{
-		title: 'Computer Engineering',
-		titlePT: 'Engenharia Informática',
-		type: 'academic',
-		subtitle: ['Completed degree'],
-		subtitlePT: ['Licenciatura concluída'],
-		time: 'Sep 2019 - Jul 2022',
-		timePT: 'Set 2019 - Jul 2022',
-		company: 'ISPGaya',
-	},
-	{
 		title: 'Software Developer',
 		titlePT: 'Desenvolvedor de Software',
 		type: 'academic',
@@ -354,6 +344,16 @@ export const academic: Timeline[] = [
 		time: 'Fev 2022 - Jun 2022',
 		timePT: 'Fev 2022 - Jun 2022',
 		company: 'ITSector',
+	},
+	{
+		title: 'Computer Engineering',
+		titlePT: 'Engenharia Informática',
+		type: 'academic',
+		subtitle: ['Completed degree'],
+		subtitlePT: ['Licenciatura concluída'],
+		time: 'Sep 2019 - Jul 2022',
+		timePT: 'Set 2019 - Jul 2022',
+		company: 'ISPGaya',
 	},
 ];
 // #endregion SECTION OVERVIEW Roles
@@ -474,6 +474,38 @@ export const cardsData: ProjectProps[] = [
 			{
 				title: 'Vite',
 				icon: images.ViteLogo.src,
+			},
+			{
+				title: 'GitLab',
+				icon: images.GitLabLogo.src,
+			},
+			{
+				title: 'Node',
+				icon: images.Node.src,
+			},
+			{
+				title: 'MySQL',
+				icon: images.MySQL.src,
+			},
+		],
+	},
+	{
+		title: 'API BackOffice',
+		type: 'personal',
+		label: 'Currently working on the development of a full-stack dashboard to monitor API usage, account balance, and request costs. The platform includes real-time analytics per product and API key, with features like automated top-ups, rate visualization, and usage tracking.',
+		labelPT:
+			'A trabalhar atualmente no desenvolvimento de um dashboard full-stack para monitorização do uso da API, saldo da conta e custos por pedido. A plataforma inclui análises em tempo real por produto e chave de API, com funcionalidades como recargas automáticas, visualização de tarifas e histórico de utilização.',
+		leftColor: colors.project.leftKOLSColor,
+		image: images.ApiTrackerImage.src,
+		headerIcon: images.TrackerAILogo.src,
+		techs: [
+			{
+				title: 'React',
+				icon: images.React.src,
+			},
+			{
+				title: 'Typescript',
+				icon: images.Typescript.src,
 			},
 			{
 				title: 'GitLab',

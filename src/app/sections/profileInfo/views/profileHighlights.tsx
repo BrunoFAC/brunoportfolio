@@ -1,6 +1,6 @@
 import { HighlightBox } from '@/components';
-import { colors, device, useResources } from '@/utils';
 import { images } from '@/images';
+import { colors, device, useResources } from '@/utils';
 import { FC } from 'react';
 import styled from 'styled-components';
 
@@ -32,9 +32,10 @@ const Container = styled.div`
 export const ProfileHighlights: FC = () => {
 	const resources = useResources();
 
-	const differenceTimezone = new Date().getTimezoneOffset() / 60;
-
-	const calculateTimezone = differenceTimezone >= 0 ? `GMT +${differenceTimezone}` : `GMT ${differenceTimezone}`;
+	const offsetInMinutes = new Date().getTimezoneOffset();
+	const offsetInHours = -offsetInMinutes / 60;
+	const sign = offsetInHours >= 0 ? '+' : '-';
+	const calculateTimezone = `GMT ${sign}${Math.abs(offsetInHours)}`;
 
 	const birthDate = new Date('2001-03-15');
 	const startedWorking = new Date('2022-08-01');

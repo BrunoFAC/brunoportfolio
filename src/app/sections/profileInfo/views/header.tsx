@@ -1,9 +1,9 @@
 import { Pulse } from '@/components';
-import { colors, device, useResources } from '@/utils';
 import { images } from '@/images';
+import { Highlight, Subtitle, Title } from '@/styles';
+import { colors, device, useResources } from '@/utils';
 import { FC } from 'react';
 import styled from 'styled-components';
-import { Title, Highlight, Subtitle } from '@/styles';
 
 const ContainerAvatar = styled.div`
 	display: flex;
@@ -23,7 +23,6 @@ const Avatar = styled.div<{ $image: string; $hoveredImage: string }>`
 	transition:
 		transform 0.3s ease,
 		background-image 0.5s ease;
-	cursor: pointer;
 
 	&:hover {
 		background-image: url(${({ $hoveredImage }) => $hoveredImage});
@@ -43,7 +42,6 @@ const ContainerWork = styled.div`
 	background: ${colors.shadowedRed};
 	padding: 0px 8px;
 	border-radius: 16px;
-	cursor: pointer;
 	width: fit-content;
 	align-items: center;
 	flex-direction: row;

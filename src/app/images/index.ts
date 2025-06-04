@@ -1,45 +1,46 @@
+import ApiTrackerImage from './apitracker.png';
+import Arrow from './arrow.svg';
+import Avatar from './bruno.png';
+import Clock from './clock.png';
+import Coffee from './coffee.png';
+import Copy from './copy.png';
+import Dev from './dev.png';
+import DevOps from './devops.png';
+import Download from './downloadIcon.png';
+import Email from './email.png';
+import EN from './en.png';
+import Experience from './experience.png';
+import Git from './git.png';
+import Github from './githubIcon.png';
+import GitLabLogo from './gitLabLogo.png';
+import ID from './id.png';
+import KOLsImage from './KOLsImage.png';
+import Language from './language.png';
+import Link from './link.png';
+import LinkedIn from './linkedIn.png';
+import Menu from './list.png';
 import MarketGIF from './market.gif';
+import Millennium from './millennium.png';
+import ModuleFederation from './moduleFederation.png';
+import MSEImage from './mseImage.png';
+import MySQL from './mysql.png';
+import Next from './next.png';
+import Node from './nodejs.png';
+import Pin from './pinIcon.png';
+import PortfolioImage from './portfolioImage.png';
+import PT from './portugal.png';
+import React from './react.png';
+import SippingCoffee from './sippingCoffee.gif';
+import SiteHeader from './siteHeader.png';
 import Store from './store.png';
 import StoreIcon from './storeIcon.png';
 import StoreIconDarkMode from './storeIconDarkMode.png';
-import Github from './githubIcon.png';
-import Avatar from './bruno.png';
-import Pin from './pinIcon.png';
-import Coffee from './coffee.png';
-import Language from './language.png';
-import LinkedIn from './linkedIn.png';
-import Email from './email.png';
-import Clock from './clock.png';
-import Download from './downloadIcon.png';
-import Experience from './experience.png';
-import Dev from './dev.png';
-import ID from './id.png';
-import React from './react.png';
-import Next from './next.png';
-import DevOps from './devops.png';
-import Git from './git.png';
-import Typescript from './typescript.png';
-import Zustand from './zustand.png';
-import MySQL from './mysql.png';
-import Node from './nodejs.png';
-import SippingCoffee from './sippingCoffee.gif';
-import ModuleFederation from './moduleFederation.png';
-import Arrow from './arrow.svg';
-import Link from './link.png';
-import SiteHeader from './siteHeader.png';
-import Millennium from './millennium.png';
-import Work from './work.png';
-import Copy from './copy.png';
-import PT from './portugal.png';
-import Menu from './list.png';
-import EN from './en.png';
-import PortfolioImage from './portfolioImage.png';
-import Video from './video.png';
-import MSEImage from './mseImage.png';
 import TrackerAILogo from './trackerAILogo.svg';
+import Typescript from './typescript.png';
+import Video from './video.png';
 import ViteLogo from './viteLogo.svg';
-import GitLabLogo from './gitLabLogo.png';
-import KOLsImage from './KOLsImage.png';
+import Work from './work.png';
+import Zustand from './zustand.png';
 
 export const images = {
 	MarketGIF,
@@ -48,6 +49,7 @@ export const images = {
 	ViteLogo,
 	PortfolioImage,
 	KOLsImage,
+	ApiTrackerImage,
 	Menu,
 	MySQL,
 	Node,

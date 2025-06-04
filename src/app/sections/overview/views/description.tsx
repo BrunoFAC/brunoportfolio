@@ -1,8 +1,8 @@
+import { SimpleButton } from '@/components';
+import { academic, colors, professional, useResources } from '@/utils';
 import { FC, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { academic, colors, professional, useResources } from '@/utils';
 import { OverviewViews } from '../views';
-import { SimpleButton } from '@/components';
 
 const Container = styled.div`
 	display: flex;

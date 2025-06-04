@@ -1,23 +1,23 @@
-import { FC, useState } from 'react';
-import { colors, Timeline, useResources } from '@/utils';
 import { HighlightBox, Pulse } from '@/components';
+import { useCommonStore } from '@/store';
 import { ItemDescription, ItemTitle } from '@/styles';
+import { colors, Timeline, useResources } from '@/utils';
+import { FC, useState } from 'react';
 import {
-	Container,
-	ContainerPulse,
+	AccordionContent,
 	Connect,
-	ContainerPosition,
-	ContainerTitle,
-	IconWork,
-	ContainerPositionLocation,
+	Container,
+	ContainerDescriptionDetails,
 	ContainerDetails,
 	ContainerDetailsLink,
-	IconSeeDetails,
-	AccordionContent,
-	ContainerDescriptionDetails,
+	ContainerPosition,
+	ContainerPositionLocation,
+	ContainerPulse,
 	ContainerTechs,
+	ContainerTitle,
+	IconSeeDetails,
+	IconWork,
 } from './description.roles.styles';
-import { useCommonStore } from '@/store';
 
 export interface RolesProps {
 	roles: Timeline;

@@ -193,14 +193,66 @@ export interface Timeline {
 
 export const professional: Timeline[] = [
 	{
+		title: 'SI Consultant II',
+		titlePT: 'Consultor SI II',
+		company: 'ITSector',
+		type: 'company',
+		iconCompany: images.Work.src,
+		projects: 'Credit Brokers (Millennium BCP)',
+		time: 'Apr 2025 - Current',
+		timePT: 'Abr 2025 - Atual',
+		subtitle: [
+			'Team leader of front-end development and architecture consolidation to ensure an efficient and scalable structure.',
+			'Defined and implemented a modular architecture based on micro frontends using Module Federation.',
+			'Developed user interfaces with ReactJS and TypeScript, ensuring performance and component reusability.',
+			'Managed application state with Zustand, tailored for complex and highly interactive applications.',
+			'Collaborated with stakeholders and tech leads to align technical solutions with business requirements.',
+			'Used Azure DevOps for CI/CD pipelines, version control, and sprint planning within a Scrum environment.',
+			'Worked closely with back-end and UI/UX teams to ensure functional and visual consistency.',
+			'Provided technical support to the team and validated deliveries, promoting best practices and knowledge sharing.',
+		],
+		subtitlePT: [
+			'Liderança do desenvolvimento front-end e consolidação da arquitetura da solução, garantindo uma estrutura eficiente e escalável.',
+			'Definição e implementação de uma arquitetura modular baseada em micro frontends com recurso a Module Federation.',
+			'Desenvolvimento de interfaces com ReactJS e TypeScript, assegurando performance e reutilização de componentes.',
+			'Gestão de estado com Zustand, adaptada a aplicações complexas com elevada interatividade.',
+			'Colaboração com stakeholders e tech leads para alinhar soluções técnicas com os requisitos do negócio.',
+			'Utilização do Azure DevOps para pipelines de CI/CD, controlo de versões e planeamento de sprints em ambiente Scrum.',
+			'Colaboração próxima com equipas de back-end e UI/UX para assegurar coesão funcional e visual.',
+			'Apoio técnico à equipa e validação de entregas, promovendo boas práticas e partilha de conhecimento.',
+		],
+		techs: [
+			{
+				title: 'React',
+				icon: images.React.src,
+			},
+			{
+				title: 'Typescript',
+				icon: images.Typescript.src,
+			},
+			{
+				title: 'Zustand',
+				icon: images.Zustand.src,
+			},
+			{
+				title: 'Module Federations',
+				icon: images.ModuleFederation.src,
+			},
+			{
+				title: 'Azure DevOps',
+				icon: images.DevOps.src,
+			},
+		],
+	},
+	{
 		title: 'SI Consultant',
 		titlePT: 'Consultor SI',
 		company: 'ITSector',
 		type: 'company',
 		iconCompany: images.Work.src,
 		projects: 'MSE (Millennium BCP Corp)',
-		time: 'Apr 2024 - Current ',
-		timePT: 'Abr 2024 - Atual ',
+		time: 'Apr 2024 - Mar 2025',
+		timePT: 'Abr 2024 - Mar 2025',
 		subtitle: [
 			'Developed and maintained React and TypeScript code within a micro frontends architecture.',
 			'Collaborated with back-end teams and designers to enhance usability and user experience.',
@@ -229,6 +281,10 @@ export const professional: Timeline[] = [
 			{
 				title: 'Module Federations',
 				icon: images.ModuleFederation.src,
+			},
+			{
+				title: 'Azure DevOps',
+				icon: images.DevOps.src,
 			},
 		],
 	},
@@ -268,6 +324,10 @@ export const professional: Timeline[] = [
 			{
 				title: 'Module Federations',
 				icon: images.ModuleFederation.src,
+			},
+			{
+				title: 'Azure DevOps',
+				icon: images.DevOps.src,
 			},
 		],
 	},
